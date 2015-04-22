@@ -1,0 +1,93 @@
+/* GridLayout
+ */
+
+.gl-container * {
+  box-sizing: border-box;
+}
+
+.gl-container {
+  display: table;
+  width: 100%;
+  overflow: hidden;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.gl-row {
+  display: table-row;
+}
+
+.gl-col {
+  position: relative;
+  display: table-cell;
+  height: inherit;
+}
+
+/* need this because IE8+ and FF don't set the right height
+ * on cells without real relative/static content.
+ */
+.gl-col:after {
+  content: '\A';
+  white-space: pre;
+}
+
+/* need to use position absolute, otherwise IE and FF will
+ * expand the box and cell height to show the entire content.
+ */
+.gl-col-scrollview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  
+  -webkit-overflow-scrolling: touch;
+}
+
+.gl-col-scrollview > .gl-container {
+  height: 100%;
+}
+
+/* TODO sizes
+ */
+
+.gl-row.gl-1 {
+  height: 8.3333%;
+}
+
+.gl-col.gl-1 {
+  width: 8.3333%;
+}
+
+/* vertical alignment
+ */
+
+.gl-align-middle {
+  vertical-align: middle;
+}
+
+.gl-align-bottom {
+  vertical-align: bottom;
+}
+
+/* TODO guttered
+ */
+
+/* TODO offsets
+ */
+
+/* TODO media queries
+ */
+
+
+
+/* utils
+ */
+
+.gl-container-fill-height {
+  height: 100%;
+}
+
+/* TODO add column and row spacing classes
+ */

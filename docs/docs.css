@@ -1,0 +1,23 @@
+/* styles for docs
+ */
+
+html,
+body {
+  display: block;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  padding: 20px;
+}
+
+.gl-row {
+  background: lightgreen;
+  outline: 1px solid #fff;
+}
+
+.gl-col {
+  background: lightblue;
+  outline: 1px solid #fff;
+}
