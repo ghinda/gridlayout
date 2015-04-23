@@ -14,6 +14,8 @@
   /* make scrollviews work in ios
    */
   -webkit-overflow-scrolling: touch;
+  
+  white-space: nowrap;
 }
 
 .gl-container {
@@ -29,12 +31,12 @@
 }
 
 .gl-col {
+  display: table-cell;
   position: relative;
   display: table-cell;
-  height: inherit;
 }
 
-/* need this because IE8+ and FF don't set the right height
+/* need this because IE8 and FF don't set the right height
  * on cells without non-absolute content.
  */
 .gl-col:after {
@@ -45,18 +47,24 @@
 /* need to use an absolute container, otherwise IE and FF will
  * expand the box and cell height to show the entire content.
  */
+
+/* TODO we always need to wrap -container in a scrollview
+ * for nested grids, for firefox support.
+ * otherwise firefox will not set the correct heights/widths 
+ * for the nested cells.
+ */
 .gl-col-scrollview {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  
-  -ms-filter: "progid:DXImageTransform.Microsoft.Blur(pixelradius=2)";
 }
 
-.gl-col-scrollview > .gl-container {
+.gl-col .gl-container {
   height: 100%;
 }
 
@@ -100,3 +108,9 @@
   height: 100%;
 }
 
+.wut {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
