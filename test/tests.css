@@ -1,0 +1,44 @@
+/* styles for tests
+ */
+
+.fixture {
+  /*
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  */
+  width: 1000px;
+  height: 1000px;
+}
+
+/* easier visual debugging
+ */
+
+.gl-row {
+  background: lightgreen;
+  outline: 1px solid #fff;
+}
+
+.gl-col {
+  background: lightblue;
+  outline: 1px solid #fff;
+}
+
+/* utils
+ */
+
+.height-50 {
+  height: 50px;
+}
+
+.height-100 {
+  height: 100px;
+}
+
+.width-50 {
+  width: 50px;
+}
+
+.width-100 {
+  width: 100px;
+}

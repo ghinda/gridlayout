@@ -1,8 +1,19 @@
 /* GridLayout
  */
 
-.gl-container * {
+.gl-container,
+.gl-container .gl-row,
+.gl-container .gl-col,
+.gl-container .gl-col-scrollview {
   box-sizing: border-box;
+
+  /* old android
+   */
+  -webkit-box-sizing: border-box;
+
+  /* make scrollviews work in ios
+   */
+  -webkit-overflow-scrolling: touch;
 }
 
 .gl-container {
@@ -24,14 +35,14 @@
 }
 
 /* need this because IE8+ and FF don't set the right height
- * on cells without real relative/static content.
+ * on cells without non-absolute content.
  */
 .gl-col:after {
   content: '\A';
   white-space: pre;
 }
 
-/* need to use position absolute, otherwise IE and FF will
+/* need to use an absolute container, otherwise IE and FF will
  * expand the box and cell height to show the entire content.
  */
 .gl-col-scrollview {
@@ -42,7 +53,7 @@
   height: 100%;
   overflow: auto;
   
-  -webkit-overflow-scrolling: touch;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Blur(pixelradius=2)";
 }
 
 .gl-col-scrollview > .gl-container {
@@ -89,5 +100,3 @@
   height: 100%;
 }
 
-/* TODO add column and row spacing classes
- */

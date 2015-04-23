@@ -1,0 +1,17 @@
+{
+  "name": "gridlayout",
+  "version": "1.0.0",
+  "main": "./dist/gridlayout.css",
+  "author": "Ionut Colceriu",
+  "ignore": [
+    "**/*",
+    "./gridlayout.css"
+  ],
+  "devDependencies": {
+    "normalize-css": "~2",
+    "prism": "gh-pages"
+  },
+  "dependencies": {
+    "jasmine": "~2.2.1"
+  }
+}
