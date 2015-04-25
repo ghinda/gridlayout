@@ -2,6 +2,7 @@
  */
 
 (function() {
+  'use strict';
 
 var $fixture = document.querySelector('.fixture-holygrail');
 
@@ -13,7 +14,9 @@ var footer = $fixture.querySelector('.footer').getBoundingClientRect();
 var firstColumn = document.querySelector('.first-column').getBoundingClientRect();
 var lastColumn = document.querySelector('.last-column').getBoundingClientRect();
 var contentColumn = document.querySelector('.content-column').getBoundingClientRect();
-var scrollview = document.querySelector('.scrollview').getBoundingClientRect();
+
+var $scrollview = document.querySelector('.scrollview');
+var scrollview = $scrollview.getBoundingClientRect();
 
 var $bottomContent = document.querySelector('.bottom-content');
 var bottomContent = $bottomContent.getBoundingClientRect();
@@ -51,7 +54,7 @@ describe('Holy Grail Layout', function() {
   });
 
   it('should not have the bottom content into view ', function() {
-
+    
     expect(bottomContent.top).toBeGreaterThan(scrollview.top + scrollview.height);
 
   });
@@ -65,6 +68,10 @@ describe('Holy Grail Layout', function() {
       bottomContent = $bottomContent.getBoundingClientRect();
 
       expect(bottomContent.top).toBeLessThan(scrollview.top + scrollview.height);
+      
+      // clean-up after yourself
+      $scrollview.scrollTop = 0;
+      
       done();
 
     });

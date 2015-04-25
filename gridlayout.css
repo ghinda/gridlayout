@@ -31,17 +31,19 @@
 }
 
 .gl-col {
-  display: table-cell;
   position: relative;
   display: table-cell;
 }
 
 /* need this because IE8 and FF don't set the right height
  * on cells without non-absolute content.
+ * we need to use real non-whitespace (eg. \A) content in it
+ * for IE9+.
  */
 .gl-col:after {
-  content: '\A';
-  white-space: pre;
+  content: '*';
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* need to use an absolute container, otherwise IE and FF will
@@ -53,12 +55,16 @@
  * otherwise firefox will not set the correct heights/widths 
  * for the nested cells.
  */
-.gl-col-scrollview {
+/* TODO firefox only sets the corrent height for the cell,
+ * if the container parent in the cell is set to absolute
+ */
+/* TODO ie9 only doesn't set any height to the cell, if the only content in it is 
+ * absolute. the :after hack for ie8/firefox doesn't seem to work for ie9
+ */
+.gl-scrollview {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -67,6 +73,7 @@
 .gl-col .gl-container {
   height: 100%;
 }
+
 
 /* TODO sizes
  */

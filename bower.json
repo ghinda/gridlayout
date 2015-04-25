@@ -5,7 +5,8 @@
   "author": "Ionut Colceriu",
   "ignore": [
     "**/*",
-    "./gridlayout.css"
+    "./gridlayout.css",
+    "./gridlayout-ie9.js"
   ],
   "devDependencies": {
     "normalize-css": "~2",

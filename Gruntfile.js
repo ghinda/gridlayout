@@ -18,14 +18,25 @@ module.exports = function (grunt) {
   grunt.initConfig({
     config: config,
     watch: {
+      grunt: {
+        files: [ 'Gruntfile.js' ]
+      },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
         },
         files: [
           './{,*/}*.html',
+          './{,*/}*.js',
           './{,*/}*.css'
         ]
+      },
+      jshint: {
+        files: [ 
+          './gridlayout-ie9.js',
+          './test/{,*/}*.js'
+        ],
+        tasks: [ 'jshint' ]
       }
     },
     connect: {
@@ -52,6 +63,14 @@ module.exports = function (grunt) {
           }
         }
       }
+    },
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc'
+      },
+      all: [
+        '{,*/}*.js'
+      ]
     },
     'saucelabs-jasmine': {
       all: {
@@ -105,6 +124,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'connect:livereload',
+      'jshint',
       'watch'
     ]);
   });
