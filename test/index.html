@@ -11,17 +11,6 @@
 
   <link rel="stylesheet" href="tests.css">
 
-  <script src="/bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
-  <script src="/bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
-  <script src="/bower_components/jasmine/lib/jasmine-core/boot.js"></script>
-  <script src="/bower_components/jasmine-jsreporter/jasmine-jsreporter.js"></script>
-
-  <script>
-    jasmine.getEnv().addReporter(new jasmineRequire.JSReporter2());
-  </script>
-  
-  <script src="/gridlayout-ie9.js"></script>
-
 </head>
 <body>
 
@@ -79,6 +68,17 @@
 
   </div>
 
+  <script src="/gridlayout-ie9.js"></script>
+  
+  <script src="/bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
+  <script src="/bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+  <script src="/bower_components/jasmine/lib/jasmine-core/boot.js"></script>
+  <script src="/bower_components/jasmine-jsreporter/jasmine-jsreporter.js"></script>
+
+  <script>
+    jasmine.getEnv().addReporter(new jasmineRequire.JSReporter2());
+  </script>
+  
   <script src="holygrail.spec.js"></script>
 
 </body>

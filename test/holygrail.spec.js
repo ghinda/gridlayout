@@ -1,27 +1,43 @@
 /* holy-grail layout tests
  */
 
-(function() {
-  'use strict';
-
-var $fixture = document.querySelector('.fixture-holygrail');
-
-var fixture = $fixture.getBoundingClientRect();
-var container = $fixture.querySelector('.gl-container').getBoundingClientRect();
-var header = $fixture.querySelector('.header').getBoundingClientRect();
-var content = $fixture.querySelector('.content').getBoundingClientRect();
-var footer = $fixture.querySelector('.footer').getBoundingClientRect();
-var firstColumn = document.querySelector('.first-column').getBoundingClientRect();
-var lastColumn = document.querySelector('.last-column').getBoundingClientRect();
-var contentColumn = document.querySelector('.content-column').getBoundingClientRect();
-
-var $scrollview = document.querySelector('.scrollview');
-var scrollview = $scrollview.getBoundingClientRect();
-
-var $bottomContent = document.querySelector('.bottom-content');
-var bottomContent = $bottomContent.getBoundingClientRect();
-
 describe('Holy Grail Layout', function() {
+  'use strict';
+  
+  var $fixture;
+  var fixture;
+  var container;
+  var header;
+  var content;
+  var footer;
+  var firstColumn;
+  var lastColumn;
+  var contentColumn;
+  var $scrollview;
+  var scrollview;
+  var $bottomContent;
+  var bottomContent;
+  
+  beforeAll(function() {
+    
+    $fixture = document.querySelector('.fixture-holygrail');
+
+    fixture = $fixture.getBoundingClientRect();
+    container = $fixture.querySelector('.gl-container').getBoundingClientRect();
+    header = $fixture.querySelector('.header').getBoundingClientRect();
+    content = $fixture.querySelector('.content').getBoundingClientRect();
+    footer = $fixture.querySelector('.footer').getBoundingClientRect();
+    firstColumn = document.querySelector('.first-column').getBoundingClientRect();
+    lastColumn = document.querySelector('.last-column').getBoundingClientRect();
+    contentColumn = document.querySelector('.content-column').getBoundingClientRect();
+
+    $scrollview = document.querySelector('.scrollview');
+    scrollview = $scrollview.getBoundingClientRect();
+
+    $bottomContent = document.querySelector('.bottom-content');
+    bottomContent = $bottomContent.getBoundingClientRect();
+    
+  });
 
   it('should take up the full height of the container', function() {
 
@@ -79,7 +95,4 @@ describe('Holy Grail Layout', function() {
   });
 
 });
-
-
-}());
 

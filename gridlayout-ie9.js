@@ -3,7 +3,7 @@
 
 (function() {
   'use strict';
-
+  
   var setScrollviewSizes = function() {
   
     var $scrollviews = document.querySelectorAll('.gl-scrollview');
@@ -46,7 +46,7 @@
   };
   
   document.addEventListener('DOMContentLoaded', function() {
-                            
+    
     // only listen to the resize event if we had broken dimensions
     if(setScrollviewSizes()) {
       window.addEventListener('resize', setScrollviewSizes);

@@ -2,13 +2,9 @@
  */
 
 .fixture {
-  /*
-  position: absolute;
-  top: -1000px;
-  left: -1000px;
-  */
-  width: 1000px;
-  height: 1000px;
+  margin: 10px;
+  width: 800px;
+  height: 500px;
 }
 
 /* easier visual debugging
