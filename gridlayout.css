@@ -1,10 +1,13 @@
 /* GridLayout
+ * 
+ * Ionuț Colceriu - ghinda.net
+ * https://github.com/ghinda/gridlayout
  */
 
 .gl,
 .gl .gl-row,
 .gl .gl-col,
-.gl .gl-col-scrollview {
+.gl .gl-scrollview {
   box-sizing: border-box;
 
   /* old android
@@ -45,18 +48,10 @@
   visibility: hidden;
 }
 
-/* need to use an absolute container, otherwise IE and FF will
- * expand the box and cell height to show the entire content.
- */
-
-/* TODO when nesting grids, we always need to wrap .gl in a scrollview
+/* we need to use an absolute container, because IE and FF don't
+ * support overflow: auto on table cells.
+ * when nesting grids, we always need to wrap .gl in a scrollview
  * otherwise browsers will make the cells with nested grids bigger.
- */
-/* TODO firefox only sets the corrent height for the cell,
- * if the container parent in the cell is set to absolute
- */
-/* TODO ie9 only doesn't set any height to the cell, if the only content in it is 
- * absolute. the :after hack for ie8/firefox doesn't seem to work for ie9
  */
 .gl-scrollview {
   position: absolute;
@@ -68,12 +63,16 @@
   overflow: auto;
 }
 
+/* nested grids take up the full height
+ */
 .gl-col .gl {
   height: 100%;
 }
 
 
-/* TODO sizes
+/* cell sizes, 12 rows/columns, with 11 classes.
+ * we don't need a specific class for the twelfth column,
+ * because you can just use .gl-fill-height and a single cell.
  */
 
 .gl-row.gl-1 {
@@ -82,6 +81,86 @@
 
 .gl-col.gl-1 {
   width: 8.3333%;
+}
+
+.gl-row.gl-2 {
+  height: 16.6666%;
+}
+
+.gl-col.gl-2 {
+  width: 16.6666%;
+}
+
+.gl-row.gl-3 {
+  height: 25%;
+}
+
+.gl-col.gl-3 {
+  width: 25%;
+}
+
+.gl-row.gl-4 {
+  height: 33.3333%;
+}
+
+.gl-col.gl-4 {
+  width: 33.3333%;
+}
+
+.gl-row.gl-5 {
+  height: 41.6666%;
+}
+
+.gl-col.gl-5 {
+  width: 41.6666%;
+}
+
+.gl-row.gl-6 {
+  height: 50%;
+}
+
+.gl-col.gl-6 {
+  width: 50%;
+}
+
+.gl-row.gl-7 {
+  height: 58.3333%;
+}
+
+.gl-col.gl-7 {
+  width: 58.3333%;
+}
+
+.gl-row.gl-8 {
+  height: 66.6666%;
+}
+
+.gl-col.gl-8 {
+  width: 66.6666%;
+}
+
+.gl-row.gl-9 {
+  height: 75%;
+}
+
+.gl-col.gl-9 {
+  width: 75%;
+}
+
+.gl-row.gl-10 {
+  height: 83.3333%;
+}
+
+.gl-col.gl-10 {
+  width: 83.3333%;
+}
+
+.gl-row.gl-11 {
+  height: 91.6666%;
+}
+
+.gl-col.gl-11 {
+  width: 91.6666%;
 }
 
 /* vertical alignment
@@ -95,11 +174,13 @@
   vertical-align: bottom;
 }
 
-/* TODO guttered
+/* TODO spacing
  */
+
 
 /* TODO offsets
  */
+
 
 /* TODO media queries
  */
