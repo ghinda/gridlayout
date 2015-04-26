@@ -10,13 +10,12 @@
   <link rel="stylesheet" href="/gridlayout.css">
 
   <link rel="stylesheet" href="tests.css">
-
 </head>
 <body>
 
   <div class="fixture fixture-holygrail">
 
-    <div class="gl-container gl-container-fill-height">
+    <div class="gl gl-fill-height">
 
       <div class="gl-row header height-100">
         header
@@ -28,7 +27,7 @@
 
           <div class="gl-scrollview">
 
-            <div class="gl-container">
+            <div class="gl">
 
               <div class="gl-col width-50 first-column">
                 col
@@ -67,6 +66,41 @@
     </div>
 
   </div>
+  
+  <div class="fixture fixture-dynamic">
+  
+    <div class="gl gl-fill-height">
+      
+      <div class="gl-row header">
+        row
+      </div>
+      
+      <div class="gl-row content">
+        
+        <div class="gl-col">
+          <div class="gl-scrollview">
+          
+            <div class="gl">
+              
+              <div class="gl-col column">
+                col
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  
+  </div>
+  
+  <!-- for IE8 getBoundingClientRect width/height -->
+  <!--[if lte IE 8]>
+    <script src="polyfill/polyfill.min.js"></script>
+  <![endif]-->
 
   <script src="/gridlayout-ie9.js"></script>
   
@@ -80,6 +114,7 @@
   </script>
   
   <script src="holygrail.spec.js"></script>
+  <script src="dynamic.spec.js"></script>
 
 </body>
 </html>

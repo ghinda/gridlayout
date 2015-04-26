@@ -1,8 +1,13 @@
 /* GridLayout support for IE 9+
  */
 
-(function() {
+(function(global) {
   'use strict';
+  
+  // for IE8
+  if(!window.addEventListener) {
+    return;
+  }
   
   var setScrollviewSizes = function() {
   
@@ -47,11 +52,13 @@
   
   document.addEventListener('DOMContentLoaded', function() {
     
-    // only listen to the resize event if we had broken dimensions
+    // attach events only if we had broken dimensions
     if(setScrollviewSizes()) {
       window.addEventListener('resize', setScrollviewSizes);
+      document.body.addEventListener('DOMSubtreeModified', setScrollviewSizes);
     }
     
   });
+  
 
-})();
+}(this));

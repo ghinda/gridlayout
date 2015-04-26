@@ -1,10 +1,10 @@
 /* GridLayout
  */
 
-.gl-container,
-.gl-container .gl-row,
-.gl-container .gl-col,
-.gl-container .gl-col-scrollview {
+.gl,
+.gl .gl-row,
+.gl .gl-col,
+.gl .gl-col-scrollview {
   box-sizing: border-box;
 
   /* old android
@@ -18,7 +18,7 @@
   white-space: nowrap;
 }
 
-.gl-container {
+.gl {
   display: table;
   width: 100%;
   overflow: hidden;
@@ -37,23 +37,20 @@
 
 /* need this because IE8 and FF don't set the right height
  * on cells without non-absolute content.
- * we need to use real non-whitespace (eg. \A) content in it
+ * we need to use real, non-whitespace, (eg. \A) content in it
  * for IE9+.
  */
 .gl-col:after {
   content: '*';
-  opacity: 0;
-  pointer-events: none;
+  visibility: hidden;
 }
 
 /* need to use an absolute container, otherwise IE and FF will
  * expand the box and cell height to show the entire content.
  */
 
-/* TODO we always need to wrap -container in a scrollview
- * for nested grids, for firefox support.
- * otherwise firefox will not set the correct heights/widths 
- * for the nested cells.
+/* TODO when nesting grids, we always need to wrap .gl in a scrollview
+ * otherwise browsers will make the cells with nested grids bigger.
  */
 /* TODO firefox only sets the corrent height for the cell,
  * if the container parent in the cell is set to absolute
@@ -65,12 +62,13 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   overflow: auto;
 }
 
-.gl-col .gl-container {
+.gl-col .gl {
   height: 100%;
 }
 
@@ -111,7 +109,7 @@
 /* utils
  */
 
-.gl-container-fill-height {
+.gl-fill-height {
   height: 100%;
 }
 
