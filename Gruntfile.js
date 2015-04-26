@@ -75,8 +75,6 @@ module.exports = function (grunt) {
     'saucelabs-jasmine': {
       all: {
         options: {
-          username: 'css-toggle-switch',
-          key: 'b97f2029-1558-4060-83fe-6b588c866c4e',
           urls: [ 'http://127.0.0.1:9000/test' ],
           detailedError: true,
           browsers: [
