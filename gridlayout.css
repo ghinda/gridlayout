@@ -177,6 +177,44 @@
 /* TODO spacing
  */
 
+.gl-spaced {
+/*   border-collapse: separate; */
+/*   border-spacing: 1em; */
+}
+
+.gl-spaced > .gl-row {
+  border-bottom: 10px solid red;
+}
+
+.gl-spaced > .gl-col,
+.gl-spaced > .gl-row > .gl-col {
+  border-right: 10px solid red;
+}
+
+.gl-spaced > .gl-row:last-child,
+.gl-spaced > .gl-col:last-child,
+.gl-spaced > .gl-row > .gl-col:last-child {
+  border: 0;
+}
+
+/* firefox places the absolute scrollview over half the borders.
+ */
+@-moz-document url-prefix() { 
+  .gl-spaced > .gl-row > .gl-scrollview,
+  .gl-spaced > .gl-row > .gl-col > .gl-scrollview {
+     padding: 5px 0;
+  }
+  
+  .gl-spaced > .gl-col > .gl-scrollview,
+  .gl-spaced > .gl-row > .gl-col > .gl-scrollview {
+    left: 5px;
+  }
+  
+  .gl-spaced > .gl-col:first-child > .gl-scrollview,
+  .gl-spaced > .gl-row > .gl-col:first-child > .gl-scrollview {
+    left: 0;
+  }
+}
 
 /* TODO offsets
  */
