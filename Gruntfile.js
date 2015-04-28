@@ -9,14 +9,7 @@ module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  // configurable paths
-  var config = {
-    app: 'src',
-    dist: './'
-  };
-
   grunt.initConfig({
-    config: config,
     watch: {
       grunt: {
         files: [ 'Gruntfile.js' ]
@@ -37,6 +30,12 @@ module.exports = function (grunt) {
           './test/{,*/}*.js'
         ],
         tasks: [ 'jshint' ]
+      },
+      stylus: {
+        files: [
+          'src/*.styl'
+        ],
+        tasks: [ 'stylus' ]
       }
     },
     connect: {
@@ -71,6 +70,13 @@ module.exports = function (grunt) {
       all: [
         '{,*/}*.js'
       ]
+    },
+    stylus: {
+      all: {
+        files: {
+          './gridlayout.css': 'src/gridlayout.styl'
+        }
+      }
     },
     'saucelabs-jasmine': {
       all: {
@@ -123,6 +129,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'connect:livereload',
       'jshint',
+      'stylus',
       'watch'
     ]);
   });
@@ -133,7 +140,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'concurrent:dist'
+    'jshint',
+    'stylus'
   ]);
 
   grunt.registerTask('default', [

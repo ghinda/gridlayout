@@ -1,0 +1,163 @@
+/* GridLayout
+ * 
+ * Ionuț Colceriu - ghinda.net
+ * https://github.com/ghinda/gridlayout
+ */
+
+@import 'nib';
+
+.gl,
+.gl .gl-row,
+.gl .gl-col,
+.gl .gl-scrollview {
+  box-sizing: border-box;
+
+  /* make scrollviews work in ios
+   */
+  -webkit-overflow-scrolling: touch;
+  
+  white-space: nowrap;
+}
+
+.gl {
+  display: table;
+  width: 100%;
+  overflow: hidden;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.gl-row {
+  display: table-row;
+}
+
+.gl-col {
+  position: relative;
+  display: table-cell;
+}
+
+/* need this because IE8 and FF don't set the right height
+ * on cells without non-absolute content.
+ * we need to use real, non-whitespace, (eg. \A) content in it
+ * for IE9+.
+ */
+.gl-col:after {
+  content: '*';
+  visibility: hidden;
+}
+
+/* we need to use an absolute container, because IE and FF don't
+ * support overflow: auto on table cells.
+ * when nesting grids, we always need to wrap .gl in a scrollview
+ * otherwise browsers will make the cells with nested grids bigger.
+ */
+.gl-scrollview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* nested grids take up the full height
+ */
+.gl-col .gl {
+  height: 100%;
+}
+
+
+/* cell sizes, 12 rows/columns, with 11 classes.
+ * we don't need a specific class for the twelfth column,
+ * because you can just use .gl-fill-height and a single cell.
+ */
+
+$grid(size = '') {
+  
+  if size == '' {
+    $className = 'gl';
+  } else {
+    $className = 'gl-' + size;
+  }
+  
+  for $i in (1..12) {
+
+    .gl-row.{$className}-{$i} {
+      height: (100 / 12) * $i * 1%;
+    }
+
+    .gl-col.{$className}-{$i} {
+      width: (100 / 12) * $i * 1%;
+    }
+    
+  }
+  
+}
+
+$grid();
+
+/* TODO offsets
+ */
+
+
+/* TODO media queries
+ */
+
+/* min-width 641px, medium screens */
+@media only screen and (min-width: 40.063em) {
+  $grid(md);
+}
+
+/* min-width 1025px, large screens */
+@media only screen and (min-width: 64.063em) {
+  $grid(lg);
+}
+
+/* vertical alignment
+ */
+
+.gl-align-middle {
+  vertical-align: middle;
+}
+
+.gl-align-bottom {
+  vertical-align: bottom;
+}
+
+/* spacing
+ */
+
+.gl-spaced > .gl-row,
+.gl-spaced > .gl-row > .gl-scrollview,
+.gl-spaced > .gl-row > .gl-col > .gl-scrollview {
+  padding-top: 1em;
+}
+
+.gl-spaced > .gl-row:first-child,
+.gl-spaced > .gl-row:first-child > .gl-scrollview,
+.gl-spaced > .gl-row:first-child > .gl-col > .gl-scrollview {
+  padding-top: 0;
+}
+
+.gl-spaced > .gl-col,
+.gl-spaced > .gl-col > .gl-scrollview,
+.gl-spaced > .gl-row > .gl-col,
+.gl-spaced > .gl-row > .gl-col > .gl-scrollview {
+  padding-left: 1em;
+}
+
+.gl-spaced > .gl-col:first-child,
+.gl-spaced > .gl-col:first-child > .gl-scrollview,
+.gl-spaced > .gl-row > .gl-col:first-child,
+.gl-spaced > .gl-row > .gl-col:first-child > .gl-scrollview {
+  padding-left: 0;
+}
+
+/* utils
+ */
+
+.gl-fill-height {
+  height: 100%;
+}
+
