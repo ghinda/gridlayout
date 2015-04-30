@@ -6,6 +6,48 @@
 
 @import 'nib';
 
+/* media-query mixin
+ */
+
+media-query($size) {
+  
+  /* max-width 320px
+   */
+  if $size == max-xs {
+    @media only screen and (max-width: 20em) {
+      {block}
+    }
+  }
+  
+  /* max-width 640px
+   */
+  if $size == max-sm {
+    @media only screen and (max-width: 40em) {
+      {block}
+    }
+  }
+  
+  /* min-width 641px
+   */
+  if $size == md {
+    @media only screen and (min-width: 40.063em) {
+      {block}
+    }
+  }
+  
+  /* min-width 1025px
+   */
+  if $size == lg {
+    @media only screen and (min-width: 64.063em) {
+      {block}
+    }
+  }
+  
+}
+
+/* grid layout globals
+ */
+
 .gl,
 .gl .gl-row,
 .gl .gl-col,
@@ -14,7 +56,7 @@
 
   /* make scrollviews work in ios
    */
-  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
   
   white-space: nowrap;
 }
@@ -27,6 +69,9 @@
   table-layout: fixed;
 }
 
+/* default to blocks on small screens
+ */
+
 .gl-row {
   display: table-row;
 }
@@ -37,20 +82,22 @@
 }
 
 /* need this because IE8 and FF don't set the right height
- * on cells without non-absolute content.
- * we need to use real, non-whitespace, (eg. \A) content in it
- * for IE9+.
- */
+  * on cells without non-absolute content.
+  * we need to use real, non-whitespace, (eg. \A) content in it
+  * for IE9+.
+  */
+
 .gl-col:after {
   content: '*';
   visibility: hidden;
 }
 
 /* we need to use an absolute container, because IE and FF don't
- * support overflow: auto on table cells.
- * when nesting grids, we always need to wrap .gl in a scrollview
- * otherwise browsers will make the cells with nested grids bigger.
- */
+  * support overflow: auto on table cells.
+  * when nesting grids, we always need to wrap .gl in a scrollview
+  * otherwise browsers will make the cells with nested grids bigger.
+  */
+
 .gl-scrollview {
   position: absolute;
   top: 0;
@@ -62,9 +109,43 @@
 }
 
 /* nested grids take up the full height
- */
+  */
+
 .gl-col .gl {
   height: 100%;
+}
+
+/* grid collapse
+ */
+
+gl-collapse() {
+  
+  /* we need !important because of size classes.
+   */
+  .gl-row,
+  .gl-col,
+  .gl-scrollview {
+    position: relative;
+    display: block;
+    width: auto !important;
+  }
+  
+}
+
++media-query(max-xs) {
+  
+  .gl-xs-collapse {
+    gl-collapse();
+  }
+  
+}
+
++media-query(max-sm) {
+  
+  .gl-sm-collapse {
+    gl-collapse();
+  }
+  
 }
 
 
@@ -73,21 +154,15 @@
  * because you can just use .gl-fill-height and a single cell.
  */
 
-$grid(size = '') {
-  
-  if size == '' {
-    $className = 'gl';
-  } else {
-    $className = 'gl-' + size;
-  }
+grid-sizes($size) {
   
   for $i in (1..12) {
 
-    .gl-row.{$className}-{$i} {
+    .gl-row.gl-{$size}-{$i} {
       height: (100 / 12) * $i * 1%;
     }
 
-    .gl-col.{$className}-{$i} {
+    .gl-col.gl-{$size}-{$i} {
       width: (100 / 12) * $i * 1%;
     }
     
@@ -95,23 +170,17 @@ $grid(size = '') {
   
 }
 
-$grid();
-
-/* TODO offsets
+/* default small grid
  */
 
+grid-sizes(sm);
 
-/* TODO media queries
- */
-
-/* min-width 641px, medium screens */
-@media only screen and (min-width: 40.063em) {
-  $grid(md);
++media-query(md) {
+  grid-sizes(md);
 }
 
-/* min-width 1025px, large screens */
-@media only screen and (min-width: 64.063em) {
-  $grid(lg);
++media-query(lg) {
+  grid-sizes(lg);
 }
 
 /* vertical alignment
