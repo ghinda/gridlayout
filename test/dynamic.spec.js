@@ -11,7 +11,7 @@ describe('Dynamic DOM', function() {
     dom.$fixture = document.querySelector('.fixture-dynamic');
     dom.fixture = dom.$fixture.getBoundingClientRect();
     
-    dom.$container = dom.$fixture.querySelector('.gl');
+    dom.$container = dom.$fixture.querySelector('.gl-vertical');
     dom.container = dom.$container.getBoundingClientRect();
     
     dom.$header = dom.$container.querySelector('.header');
@@ -37,7 +37,7 @@ describe('Dynamic DOM', function() {
   it('should add a new row with equal height', function() {
     
     dom.$footer = document.createElement('div');
-    dom.$footer.className = 'gl-row';
+    dom.$footer.className = 'gl-cell';
     dom.$footer.innerHTML = 'row';
     
     dom.$container.appendChild(dom.$footer);
@@ -60,17 +60,19 @@ describe('Dynamic DOM', function() {
   it('should add a scrollview and nested grid with one column taking up the entire row width', function() {
     
     dom.$content.innerHTML = '' +
-    '<div class="gl-col">' +
-      '<div class="gl-scrollview">' +
+    '<div class="gl-scrollview">' +
+      '<div class="gl-scrollview-content">' +
         '<div class="gl">' +
-          '<div class="gl-col column">' +
+          '<div class="gl-cell column">' +
             'col' +
           '</div>' +
         '</div>' +
-      '</div>'+
+      '</div>' +
     '</div>';
     
     dom.$column = dom.$content.querySelector('.column');
+    
+    console.log(dom.$column);
     dom.column = dom.$column.getBoundingClientRect();
     
     expect(dom.column.width).toEqual(dom.content.width);
@@ -92,7 +94,7 @@ describe('Dynamic DOM', function() {
   it('should add a new column and split the width in half', function() {
     
     dom.$lastColumn = document.createElement('div');
-    dom.$lastColumn.className = 'gl-col';
+    dom.$lastColumn.className = 'gl-cell';
     dom.$lastColumn.innerHTML = 'col';
     
     dom.$content.querySelector('.gl').appendChild(dom.$lastColumn);

@@ -49,56 +49,68 @@ media-query($size) {
  */
 
 .gl,
-.gl .gl-row,
-.gl .gl-col,
-.gl .gl-scrollview {
+.gl-vertical,
+.gl-cell,
+.gl-scrollview,
+.gl-scrollview-content {
   box-sizing: border-box;
 
-  /* make scrollviews work in ios
+  /* scrollviews in ios
    */
   overflow-scrolling: touch;
   
   white-space: nowrap;
 }
 
-.gl {
+.gl,
+.gl-vertical {
   display: table;
   width: 100%;
-  overflow: hidden;
   border-collapse: collapse;
   table-layout: fixed;
+}
+
+.gl-vertical {
+  height: 100%;
 }
 
 /* default to blocks on small screens
  */
 
-.gl-row {
-  display: table-row;
-}
-
-.gl-col {
-  position: relative;
+.gl > .gl-cell {
   display: table-cell;
 }
 
-/* need this because IE8 and FF don't set the right height
-  * on cells without non-absolute content.
-  * we need to use real, non-whitespace, (eg. \A) content in it
-  * for IE9+.
-  */
-
-.gl-col:after {
-  content: '*';
-  visibility: hidden;
+.gl-vertical > .gl-cell {
+  display: table-row;
 }
 
-/* we need to use an absolute container, because IE and FF don't
-  * support overflow: auto on table cells.
-  * when nesting grids, we always need to wrap .gl in a scrollview
-  * otherwise browsers will make the cells with nested grids bigger.
-  */
+/* nested grids take up the full height
+ */
+.gl-cell .gl,
+.gl-cell .gl-vertical {
+  height: 100%;
+}
 
-.gl-scrollview {
+/* needs an absolute container, because IE and FF don't
+ * support overflow: auto on table cells.
+ *
+ * TODO NOT ANY MORE? Needs more testing.
+ * when nesting grids, we always need to wrap .gl in a scrollview
+ * otherwise browsers will make the cells with nested grids bigger.
+ */
+
+.gl-cell {
+  position: relative;
+}
+
+.gl-vertical > .gl-cell > .gl-scrollview {
+  display: table-cell;
+  position: relative;
+}
+
+.gl > .gl-cell > .gl-scrollview,
+.gl-scrollview-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -108,11 +120,14 @@ media-query($size) {
   overflow: auto;
 }
 
-/* nested grids take up the full height
-  */
+/* IE8 and FF don't set the right height
+ * on cells without non-absolute content.
+ * needs real, non-whitespace, (eg. \A) content for IE9+.
+ */
 
-.gl-col .gl {
-  height: 100%;
+.gl-scrollview:after {
+  content: '*';
+  visibility: hidden;
 }
 
 /* grid collapse
@@ -120,14 +135,21 @@ media-query($size) {
 
 gl-collapse() {
   
-  /* we need !important because of size classes.
+  /* we need !important because of the size classes.
    */
-  .gl-row,
-  .gl-col,
-  .gl-scrollview {
-    position: relative;
+  > .gl-cell {
     display: block;
     width: auto !important;
+  }
+  
+  > .gl-cell .gl-scrollview,
+  > .gl-cell > .gl-scrollview,
+  > .gl-cell > .gl-scrollview > .gl-scrollview-content {
+    position: relative;
+  }
+  
+  > .gl-cell > .gl-scrollview:after {
+    display: none;
   }
   
 }
@@ -149,21 +171,19 @@ gl-collapse() {
 }
 
 
-/* cell sizes, 12 rows/columns, with 11 classes.
- * we don't need a specific class for the twelfth column,
- * because you can just use .gl-fill-height and a single cell.
+/* cell sizes, 12 rows/columns.
  */
 
 grid-sizes($size) {
   
   for $i in (1..12) {
 
-    .gl-row.gl-{$size}-{$i} {
-      height: (100 / 12) * $i * 1%;
-    }
-
-    .gl-col.gl-{$size}-{$i} {
+    .gl > .gl-cell.gl-{$size}-{$i} {
       width: (100 / 12) * $i * 1%;
+    }
+    
+    .gl-vertical > .gl-cell.gl-{$size}-{$i} {
+      height: (100 / 12) * $i * 1%;
     }
     
   }
@@ -221,12 +241,5 @@ grid-sizes(sm);
 .gl-spaced > .gl-row > .gl-col:first-child,
 .gl-spaced > .gl-row > .gl-col:first-child > .gl-scrollview {
   padding-left: 0;
-}
-
-/* utils
- */
-
-.gl-fill-height {
-  height: 100%;
 }
 

@@ -11,7 +11,7 @@ describe('Holy Grail Layout', function() {
     dom.$fixture = document.querySelector('.fixture-holygrail');
     
     dom.fixture = dom.$fixture.getBoundingClientRect();
-    dom.container = dom.$fixture.querySelector('.gl').getBoundingClientRect();
+    dom.container = dom.$fixture.querySelector('.gl-vertical').getBoundingClientRect();
     dom.header = dom.$fixture.querySelector('.header').getBoundingClientRect();
     dom.content = dom.$fixture.querySelector('.content').getBoundingClientRect();
     dom.footer = dom.$fixture.querySelector('.footer').getBoundingClientRect();

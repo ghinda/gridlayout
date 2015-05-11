@@ -1,9 +1,10 @@
 /* styles for tests
  */
 
-/* need to have values that cleaned devide with 3,
+/* values that cleanly devide by 3,
  * otherwise browsers round differently.
  */
+
 .fixture {
   margin: 10px;
   width: 300px;
@@ -13,13 +14,8 @@
 /* easier visual debugging
  */
 
-.gl-row {
+.gl-cell {
   background: lightgreen;
-  outline: 1px solid #fff;
-}
-
-.gl-col {
-  background: lightblue;
   outline: 1px solid #fff;
 }
 

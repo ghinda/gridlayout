@@ -1,17 +1,19 @@
 /* GridLayout support for IE 9+
+ * 
+ * IE 9+ does not pass the correct cell height to child elements.
  */
 
-(function(global) {
+(function() {
   'use strict';
   
-  // for IE8
+  // exclude IE8
   if(!window.addEventListener) {
     return;
   }
   
   var setScrollviewSizes = function() {
   
-    var $scrollviews = document.querySelectorAll('.gl-scrollview');
+    var $scrollviews = document.querySelectorAll('.gl, .gl-scrollview, .gl-scrollview-content');
     var i;
     var $parent;
     var scrollview;
@@ -28,13 +30,16 @@
       $parent = $scrollviews[i].parentNode;
       parent = $parent.getBoundingClientRect();
       
+      var parentDisplay = window.getComputedStyle($parent).display;
+      
       // instead of checking for IE 9+ by user agent,
-      // check if the size is wrong.
-      if(scrollview.height !== parent.height || scrollview.width !== parent.width) {
+      // check if the size is wrong,
+      // and the parent is a table-cell.
+      if(parentDisplay === 'table-cell' && (scrollview.height !== parent.height || scrollview.width !== parent.width)) {
         
         // at least one element had wrong sizes,
         // must be IE 9+.
-        isBroken = true;
+        isBroken = true;  
 
         // we can't separate property read/write into separate loops,
         // for performance with reflows, because we need to have the 
@@ -61,4 +66,4 @@
   });
   
 
-}(this));
+}());
