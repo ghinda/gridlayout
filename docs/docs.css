@@ -16,11 +16,3 @@ body {
   background: lightgreen;
   outline: 1px solid #fff;
 }
-
-.gl-scrollview {
-  outline: 1px solid red;
-}
-
-.gl-scrollview-content {
-  outline: 1px solid blue;
-}
