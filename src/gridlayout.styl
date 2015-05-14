@@ -58,6 +58,9 @@ media-query($size) {
    */
   overflow-scrolling: touch;
   
+  /* try to fix issues with ghost cells created by whitespace
+   * in IE9
+   */
   white-space: nowrap;
 }
 
@@ -74,6 +77,7 @@ media-query($size) {
 
 .gl-cell {
   display: table-cell;
+  position: relative;
 }
 
 .gl-vertical > .gl-cell {
@@ -83,14 +87,14 @@ media-query($size) {
 /* nested grids take up the full height
  */
 
-/* TODO IE8 does not expand nested grids to take up the full height,
+/* IE8 does not expand nested grids to take up the full height,
  * unless included in a scrollview.
  */
 
 .gl-cell .gl {
   height: 100%;
   
-  /* IE 9+ adds spacing around nested tables otherwise,
+  /* IE9+ adds spacing around nested tables otherwise,
    * causing scrollbars on scrollviews.
    */
   overflow: hidden;
@@ -98,15 +102,8 @@ media-query($size) {
 
 /* needs an absolute container, because IE and FF don't
  * support overflow: auto on table cells.
- *
- * TODO NOT ANY MORE? Needs more testing.
- * when nesting grids, we always need to wrap .gl in a scrollview
- * otherwise browsers will make the cells with nested grids bigger.
+ * only an absolute container will take up the entire cell size.
  */
-
-.gl-cell {
-  position: relative;
-}
 
 .gl-vertical > .gl-cell > .gl-scrollview {
   display: table-cell;
@@ -125,13 +122,22 @@ media-query($size) {
 
 /* IE8 and FF don't set the right height
  * on cells without non-absolute content.
- * IE 9+ needs real, non-whitespace, (eg. \A) content.
+ * IE9+ needs real, non-whitespace, (eg. \A) content.
  */
 
 .gl-scrollview:after {
   content: '*';
   visibility: hidden;
 }
+
+.gl-nested {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
 /* grid collapse
  */
