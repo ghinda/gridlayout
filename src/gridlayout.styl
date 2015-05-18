@@ -50,18 +50,8 @@ media-query($size) {
 
 .gl,
 .gl-cell,
-.gl-scrollview,
-.gl-scrollview-content {
+.gl-scrollview {
   box-sizing: border-box;
-
-  /* scrollviews in ios
-   */
-  overflow-scrolling: touch;
-  
-  /* try to fix issues with ghost cells created by whitespace
-   * in IE9
-   */
-  white-space: nowrap;
 }
 
 .gl {
@@ -110,6 +100,13 @@ media-query($size) {
   position: relative;
 }
 
+/* scrollview-content needs to be content-box, because IE9 
+ * deducts the scrollbar width twice, on absolutely positioned 
+ * border-box elements.
+ * https://social.msdn.microsoft.com/forums/ie/en-us/47c5148f-a142-4a99-9542-5f230c78cb3b/ie9-issue-with-boxsizing-borderbox
+ * https://stackoverflow.com/questions/23555327/ie9-shrinking-div-on-overflowauto-scrollbar-appearance
+ */
+
 .gl-scrollview-content {
   position: absolute;
   top: 0;
@@ -118,6 +115,10 @@ media-query($size) {
   width: 100%;
   height: 100%;
   overflow: auto;
+  
+  /* scrollviews in ios
+   */
+  overflow-scrolling: touch;
 }
 
 /* IE8 and FF don't set the right height

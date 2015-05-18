@@ -71,8 +71,7 @@ describe('Dynamic DOM', function() {
     '</div>';
     
     dom.$column = dom.$content.querySelector('.column');
-    
-    console.log(dom.$column);
+
     dom.column = dom.$column.getBoundingClientRect();
     
     expect(dom.column.width).toEqual(dom.content.width);
