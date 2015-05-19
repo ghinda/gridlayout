@@ -70,8 +70,11 @@ describe('Holy Grail Layout', function() {
     // give it a second to finish scrolling
     setTimeout(function() {
       dom.bottomContent = dom.$bottomContent.getBoundingClientRect();
-
-      expect(dom.bottomContent.top).toBeLessThan(dom.scrollview.top + dom.scrollview.height);
+      
+      // for IE8
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      
+      expect(dom.bottomContent.top).toBeLessThan(dom.scrollview.top + dom.scrollview.height + scrollTop);
       
       // clean-up after yourself
       dom.$scrollview.scrollTop = 0;

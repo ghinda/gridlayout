@@ -19,17 +19,24 @@ module.exports = function (grunt) {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          './{,*/}*.html',
-          './{,*/}*.js',
-          './{,*/}*.css'
+          '{,*/}*.html',
+          '*.js',
+          'test/*.js',
+          '*.css'
         ]
       },
       jshint: {
         files: [ 
-          './gridlayout-ie9.js',
-          './test/{,*/}*.js'
+          'gridlayout-ie9.js',
+          'test/{,*/}*.js'
         ],
         tasks: [ 'jshint' ]
+      },
+      uglify: {
+        files: [
+          'src/*.js'
+        ],
+        tasks: [ 'uglify' ]
       },
       stylus: {
         files: [
@@ -68,13 +75,39 @@ module.exports = function (grunt) {
         jshintrc: '.jshintrc'
       },
       all: [
-        '{,*/}*.js'
+        'src/*.js',
+        'test/*.js'
       ]
     },
     stylus: {
       all: {
         files: {
-          './gridlayout.css': 'src/gridlayout.styl'
+          'gridlayout.css': 'src/gridlayout.styl'
+        }
+      }
+    },
+    uglify: {
+      server: {
+        options: {
+          mangle: false
+        },
+        files: {
+          'gridlayout-ie.js': [
+            'src/polyfills-ie8.js',
+            'src/gridlayout-ie.js'
+          ]
+        }
+      },
+      dist: {
+        options: {
+          mangle: false,
+          wrap: 'gridlayoutExports'
+        },
+        files: {
+          'gridlayout-ie.js': [
+            'src/polyfills-ie8.js',
+            'src/gridlayout-ie.js'
+          ]
         }
       }
     },
@@ -129,6 +162,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'connect:livereload',
       'jshint',
+      'uglify:server',
       'stylus',
       'watch'
     ]);
@@ -141,6 +175,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'jshint',
+    'uglify:server',
     'stylus'
   ]);
 
