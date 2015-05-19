@@ -16,8 +16,6 @@
     var grid;
     var parent;
     
-    console.log('set sizes');
-    
     var dimensions = [];
     
     // elements had wrong sizes

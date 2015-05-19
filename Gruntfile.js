@@ -32,11 +32,11 @@ module.exports = function (grunt) {
         ],
         tasks: [ 'jshint' ]
       },
-      uglify: {
+      concat: {
         files: [
           'src/*.js'
         ],
-        tasks: [ 'uglify' ]
+        tasks: [ 'concat' ]
       },
       stylus: {
         files: [
@@ -86,28 +86,25 @@ module.exports = function (grunt) {
         }
       }
     },
-    uglify: {
-      server: {
-        options: {
-          mangle: false
-        },
-        files: {
-          'gridlayout-ie.js': [
-            'src/polyfills-ie8.js',
-            'src/gridlayout-ie.js'
-          ]
-        }
+    concat: {
+      options: {
+        separator: ';',
       },
+      server: {
+        src: [
+          'src/polyfills-ie8.js',
+          'src/gridlayout-ie.js'
+        ],
+        dest: 'gridlayout-ie.js',
+      },
+    },
+    uglify: {
       dist: {
         options: {
-          mangle: false,
           wrap: 'gridlayoutExports'
         },
         files: {
-          'gridlayout-ie.js': [
-            'src/polyfills-ie8.js',
-            'src/gridlayout-ie.js'
-          ]
+          'gridlayout-ie.js': 'gridlayout-ie.js'
         }
       }
     },
@@ -156,13 +153,16 @@ module.exports = function (grunt) {
 
   grunt.registerTask('server', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
+      return grunt.task.run([
+        'build',
+        'connect:dist:keepalive'
+      ]);
     }
 
     grunt.task.run([
       'connect:livereload',
       'jshint',
-      'uglify:server',
+      'concat',
       'stylus',
       'watch'
     ]);
@@ -175,7 +175,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'jshint',
-    'uglify:server',
+    'concat',
+    'uglify',
     'stylus'
   ]);
 
