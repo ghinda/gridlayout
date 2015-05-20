@@ -27,16 +27,10 @@ module.exports = function (grunt) {
       },
       jshint: {
         files: [ 
-          'gridlayout-ie9.js',
+          'src/*.js',
           'test/{,*/}*.js'
         ],
         tasks: [ 'jshint' ]
-      },
-      concat: {
-        files: [
-          'src/*.js'
-        ],
-        tasks: [ 'concat' ]
       },
       stylus: {
         files: [
@@ -86,25 +80,10 @@ module.exports = function (grunt) {
         }
       }
     },
-    concat: {
-      options: {
-        separator: ';',
-      },
-      server: {
-        src: [
-          'src/polyfills-ie8.js',
-          'src/gridlayout-ie.js'
-        ],
-        dest: 'gridlayout-ie.js',
-      },
-    },
     uglify: {
       dist: {
-        options: {
-          wrap: 'gridlayoutExports'
-        },
         files: {
-          'gridlayout-ie.js': 'gridlayout-ie.js'
+          'gridlayout-ie.min.js': 'src/gridlayout-ie.js'
         }
       }
     },
@@ -162,7 +141,6 @@ module.exports = function (grunt) {
     grunt.task.run([
       'connect:livereload',
       'jshint',
-      'concat',
       'stylus',
       'watch'
     ]);
@@ -175,7 +153,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'jshint',
-    'concat',
     'uglify',
     'stylus'
   ]);

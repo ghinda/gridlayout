@@ -7,7 +7,57 @@
 
 (function() {
   'use strict';
-  
+    
+  /* add width and height to getBoundingClientRect in IE8
+   */
+
+  var cloneObject = function(obj) {
+    var newObj = {};
+    for(var i in obj) {
+      if (obj[i] && typeof obj[i] === 'object') {
+        newObj[i] = obj[i].clone();
+      } else {
+        newObj[i] = obj[i];
+      }
+    }
+    return newObj;
+  };
+
+  var getBoundingClientRect = (function() {
+    
+    if(!('TextRectangle' in window)) {
+      return window.Element.prototype.getBoundingClientRect;
+    }
+    
+    return function() {
+      
+      var clientRect = cloneObject(this.getBoundingClientRect());
+      
+      clientRect.width = clientRect.right - clientRect.left;
+      clientRect.height = clientRect.bottom - clientRect.top;
+      
+      return clientRect;
+    };
+    
+  })();
+
+  /* addEventListener for IE8
+   * 
+   */
+
+  var addEventListener = (function() {
+    
+    if('addEventListener' in window.Element.prototype) {
+      return window.Element.prototype.addEventListener;
+    }
+    
+    return function(type, listener) {
+      this.attachEvent('on' + type, listener);
+    };
+    
+  })();
+
+  // set the correct grid and scrollview sizes
   var setGridSizes = function() {
   
     var $grids = document.querySelectorAll('.gl, .gl-scrollview, .gl-scrollview-content');
@@ -16,18 +66,21 @@
     var grid;
     var parent;
     
-    var dimensions = [];
-    
     // elements had wrong sizes
     var isBroken = false;
 
     for(i = 0; i < $grids.length; i++) {
       
-      grid = $grids[i].getBoundingClientRect();
+      grid = getBoundingClientRect.call($grids[i]);
       $parent = $grids[i].parentNode;
-      parent = $parent.getBoundingClientRect();
+      parent = getBoundingClientRect.call($parent);
       
-      var parentDisplay = window.getComputedStyle($parent).display;
+      var parentDisplay;
+      if($parent.currentStyle) {
+        parentDisplay = $parent.currentStyle.display;
+      } else {
+        parentDisplay = getComputedStyle($parent).display;
+      }
       
       var isTableCell = (parentDisplay === 'table-cell' || parentDisplay === 'table-row');
       
@@ -37,7 +90,7 @@
       if(isTableCell && (grid.height !== parent.height)) {
         
         // at least one element had wrong sizes,
-        // must be IE 9+.
+        // must be IE.
         isBroken = true;
 
         // we can't separate property read/write into separate loops,
@@ -58,20 +111,23 @@
     
   };
   
-  var domReady = function() {
+  var domReady = function(e) {
     
     // attach events only if we had broken dimensions
     if(setGridSizes()) {
-      window.addEventListener('resize', setGridSizes);
-      document.body.addEventListener('DOMSubtreeModified', setGridSizes);
       
-      // IE8
-      document.body.addEventListener('propertychange', setGridSizes);
+      addEventListener.call(window, 'resize', setGridSizes);
+      
+      // dom changes
+      addEventListener.call(document.body, 'DOMSubtreeModified', setGridSizes);
+      
+      // IE8 dom changes
+      addEventListener.call(document.body, 'propertychange', setGridSizes);
     }
     
   };
   
   // instead of DOMContentLoaded, for IE8 support
-  document.addEventListener('readystatechange', domReady);
+  addEventListener.call(document, 'readystatechange', domReady);
   
 }());
