@@ -8,21 +8,7 @@
 (function() {
   'use strict';
     
-  /* add width and height to getBoundingClientRect in IE8
-   */
-
-  var cloneObject = function(obj) {
-    var newObj = {};
-    for(var i in obj) {
-      if (obj[i] && typeof obj[i] === 'object') {
-        newObj[i] = obj[i].clone();
-      } else {
-        newObj[i] = obj[i];
-      }
-    }
-    return newObj;
-  };
-
+  // getBoundingClientRect width/height with IE8 support
   var getBoundingClientRect = (function() {
     
     if(!('TextRectangle' in window)) {
@@ -31,24 +17,24 @@
     
     return function() {
       
-      var clientRect = cloneObject(this.getBoundingClientRect());
+      var clientRect = this.getBoundingClientRect();
+      var dimensions = {};
       
-      clientRect.width = clientRect.right - clientRect.left;
-      clientRect.height = clientRect.bottom - clientRect.top;
+      dimensions.width = clientRect.right - clientRect.left;
+      dimensions.height = clientRect.bottom - clientRect.top;
       
-      return clientRect;
+      return dimensions;
     };
     
   })();
 
-  /* addEventListener for IE8
-   * 
-   */
-
+  // addEventListener with IE8 support
   var addEventListener = (function() {
     
     if('addEventListener' in window.Element.prototype) {
-      return window.Element.prototype.addEventListener;
+      return function(type, listener) {
+        this.addEventListener(type, listener, false);
+      };
     }
     
     return function(type, listener) {
@@ -113,21 +99,25 @@
   
   var domReady = function(e) {
     
-    // attach events only if we had broken dimensions
-    if(setGridSizes()) {
-      
-      addEventListener.call(window, 'resize', setGridSizes);
-      
-      // dom changes
-      addEventListener.call(document.body, 'DOMSubtreeModified', setGridSizes);
-      
-      // IE8 dom changes
-      addEventListener.call(document.body, 'propertychange', setGridSizes);
-    }
+    setGridSizes();
+    
+    // page resize
+    addEventListener.call(window, 'resize', setGridSizes);
+    
+    // dom changes
+    addEventListener.call(document.body, 'DOMSubtreeModified', setGridSizes);
+    
+    // IE8 dom changes
+    addEventListener.call(document.body, 'propertychange', setGridSizes);
     
   };
   
-  // instead of DOMContentLoaded, for IE8 support
-  addEventListener.call(document, 'readystatechange', domReady);
+  // in case the dom is already ready
+  if(document.readyState === 'interactive' || document.readyState === 'complete') {
+    domReady();
+  } else {
+    // DOMContentLoaded with IE8 support
+    addEventListener.call(document, 'readystatechange', domReady);
+  }
   
-}());
+})();

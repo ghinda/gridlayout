@@ -71,16 +71,18 @@ describe('Holy Grail Layout', function() {
     setTimeout(function() {
       dom.bottomContent = dom.$bottomContent.getBoundingClientRect();
       
+      // clean-up after yourself
+      dom.$scrollview.scrollTop = 0;
+      
       // for IE8
       var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      
+      scrollTop = 0;
       
       // refresh the scrollview boundingClientRect, for Opera 12
       dom.scrollview = dom.$scrollview.getBoundingClientRect();
       
-      expect(dom.bottomContent.top).toBeLessThan(dom.scrollview.top + dom.scrollview.height + scrollTop);
-      
-      // clean-up after yourself
-      dom.$scrollview.scrollTop = 0;
+      expect(dom.bottomContent.top).toBeLessThan(dom.scrollview.top + dom.scrollview.height);
       
       done();
 
