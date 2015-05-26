@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -8,6 +8,10 @@
 
   <link rel="stylesheet" href="/bower_components/jasmine/lib/jasmine-core/jasmine.css">
   <link rel="stylesheet" href="/gridlayout.css">
+  
+  <!--[if lte IE 8]>
+  <script src="/bower_components/respond/dest/respond.min.js"></script>
+  <![endif]-->
 
   <link rel="stylesheet" href="tests.css">
 </head>
@@ -107,6 +111,17 @@
   <script src="/bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
   <script src="/bower_components/jasmine/lib/jasmine-core/boot.js"></script>
   <script src="/bower_components/jasmine-jsreporter/jasmine-jsreporter.js"></script>
+  
+  <script>
+    // hack to delay jasmine,
+    // after respond.js kicks in.
+    // for ie8 support.
+    var prevLoad = window.onload;
+    
+    window.onload = function() {
+      setTimeout(prevLoad, 500);
+    };
+  </script>
 
   <script>
     jasmine.getEnv().addReporter(new jasmineRequire.JSReporter2());
