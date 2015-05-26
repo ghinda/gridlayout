@@ -62,7 +62,7 @@ describe('Dynamic DOM', function() {
     dom.$content.innerHTML = '' +
     '<div class="gl-scrollview">' +
       '<div class="gl-scrollview-content">' +
-        '<div class="gl">' +
+        '<div class="gl gl-sm">' +
           '<div class="gl-cell column">' +
             'col' +
           '</div>' +
