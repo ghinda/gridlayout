@@ -8,14 +8,16 @@
     "!gridlayout.css",
     "!gridlayout.min.css",
     "!gridlayout-ie.js",
-    "!gridlayout-ie.min.js"
+    "!gridlayout-ie.min.js",
+    "!LICENSE",
+    "!README.md"
   ],
   "devDependencies": {
     "normalize-css": "~2",
     "jasmine": "~2.2.1",
-    "prism": "gh-pages"
+    "prism": "gh-pages",
+    "respond": "~1.4.2"
   },
   "dependencies": {
-    "respond": "~1.4.2"
   }
 }

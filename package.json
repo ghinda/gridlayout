@@ -10,7 +10,9 @@
     "gridlayout.css",
     "gridlayout.min.css",
     "gridlayout-ie.js",
-    "gridlayout-ie.min.js"
+    "gridlayout-ie.min.js",
+    "LICENSE",
+    "README.md"
   ],
   "devDependencies": {
     "connect-livereload": "^0.5.3",
