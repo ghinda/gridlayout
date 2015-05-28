@@ -13,84 +13,84 @@
       padding: 0;
       margin: 0;
     }
+    
+    .header {
+      height: 100px;
+    }
+    
+    .footer {
+      height: 50px;
+    }
+    
   </style>
 </head>
 <body>
 
-  <div class="gl gl-vertical gl-sm-collapse gl-sm">
+  <div class="gl gl-vertical">
 
-    <div class="gl-cell">
+    <div class="gl-cell header">
 
       header
-      
-      <!--<div class="gl-scrollview">
-        <div class="gl-scrollview-content">
-      
-      cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell
-      
-        </div>
-      </div>-->
 
     </div>
 
     <div class="gl-cell">
-      
-      <div class="gl-scrollview">
-        <div class="gl-scrollview-content">
         
-          <div class="gl">
+      <div class="gl">
 
-            <div class="gl-cell gl-sm-1">
+        <div class="gl-cell gl-sm-2">
 
-              left
+          left
 
-            </div>
-
-            <div class="gl-cell gl-sm-2">
-
-              <div class="gl-scrollview">
-                <div class="gl-scrollview-content">
-            
-                cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell
-                
-                </div>
-              </div>
-
-            </div>
-
-            <div class="gl-cell gl-sm-2">
-
-              right
-
-            </div>
-
-          </div>
-          
         </div>
+
+        <div class="gl-cell">
+        
+          <div class="js-cell-content"></div>
+          
+          <a href="#" class="js-toggle-content">
+            Toggle lots of cell content, to see the layout stretch
+          </a>
+
+        </div>
+
+        <div class="gl-cell gl-sm-2">
+
+          right
+
+        </div>
+
       </div>
 
     </div>
 
-    <div class="gl-cell">
+    <div class="gl-cell footer">
 
-      <div class="gl-scrollview">
-        <div class="gl-scrollview-content">
-      
-          <div class="gl gl-xs-collapse">
-            <div class="gl-cell">
-              cell
-            </div>
-            <div class="gl-cell">
-              cell
-            </div>
-          </div>
-      
-        </div>
-      </div>
+      footer
 
     </div>
 
   </div>
+  
+  <script>
+    var markup = 'cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell';
+    
+    var $content = document.querySelector('.js-cell-content');
+    var $btnToggle = document.querySelector('.js-toggle-content');
+    var content = false;
+    
+    $btnToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      if(content) {
+        $content.innerHTML = '';
+      } else {
+        $content.innerHTML = markup;
+      }
+      
+      content = !content;
+    });
+  </script>
   
   <script src="/src/gridlayout-ie.js"></script>
 

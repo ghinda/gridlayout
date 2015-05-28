@@ -36,7 +36,7 @@ module.exports = function (grunt) {
         files: [
           'src/*.styl'
         ],
-        tasks: [ 'stylus' ]
+        tasks: [ 'stylus:server' ]
       }
     },
     connect: {
@@ -74,9 +74,20 @@ module.exports = function (grunt) {
       ]
     },
     stylus: {
-      all: {
+      options: {
+        compress: false
+      },
+      server: {
         files: {
           'gridlayout.css': 'src/gridlayout.styl'
+        }
+      },
+      dist: {
+        options: {
+          compress: true,
+        },
+        files: {
+          'gridlayout.min.css': 'src/gridlayout.styl'
         }
       }
     },
@@ -141,7 +152,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'connect:livereload',
       'jshint',
-      'stylus',
+      'stylus:server',
       'watch'
     ]);
   });

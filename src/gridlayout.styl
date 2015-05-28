@@ -11,22 +11,6 @@
 
 media-query($size) {
   
-  /* max-width 320px
-   */
-  if $size == max-xs {
-    @media only screen and (max-width: 20em) {
-      {block}
-    }
-  }
-  
-  /* max-width 640px
-   */
-  if $size == max-sm {
-    @media only screen and (max-width: 40em) {
-      {block}
-    }
-  }
-  
   /* min-width 641px
    */
   if $size == md {
@@ -45,7 +29,7 @@ media-query($size) {
   
 }
 
-/* grid layout globals
+/* grid layout defaults
  */
 
 .gl,
@@ -62,7 +46,31 @@ media-query($size) {
   position: relative;
 }
 
+/* cell sizes mixin.
+ * 12 rows/columns.
+ */
+
+grid-sizes($size) {
+  
+  for $i in (1..12) {
+
+    .gl-cell.gl-{$size}-{$i} {
+      width: (100 / 12) * $i * 1%;
+    }
+    
+    &.gl-vertical > .gl-cell.gl-{$size}-{$i} {
+      height: (100 / 12) * $i * 1%;
+    }
+    
+  }
+  
+}
+
+/* gridlayout mixin
+ */
+
 gl() {
+  
   & {
     display: table;
     border-collapse: collapse;
@@ -149,88 +157,25 @@ gl() {
   .gl {
     gl();
   }
+  
+  grid-sizes(sm);
+  grid-sizes(md);
 }
 
-/* show the grid on sm
+/* large grid sizes
+ */
++media-query(lg) {
+  grid-sizes(lg);
+}
+
+/* show the grid on small screens when using the .gl-sm class
  */
 
 .gl-sm {
   gl();
+  
+  grid-sizes(sm);
 }
-
-/* grid collapse
- */
-
-/*
-gl-collapse() {
-  > .gl-cell {
-    display: block;
-    width: auto !important;
-  }
-  
-  > .gl-cell .gl-scrollview,
-  > .gl-cell > .gl-scrollview,
-  > .gl-cell > .gl-scrollview > .gl-scrollview-content {
-    position: relative;
-  }
-  
-  > .gl-cell > .gl-scrollview:after {
-    display: none;
-  }
-  
-}
-
-+media-query(max-xs) {
-  
-  .gl-xs-collapse {
-    gl-collapse();
-  }
-  
-}
-
-+media-query(max-sm) {
-  
-  .gl-sm-collapse {
-    gl-collapse();
-  }
-  
-}
-*/
-
-
-/* cell sizes, 12 rows/columns.
- */
-
-grid-sizes($size) {
-  
-  for $i in (1..12) {
-
-    .gl-cell.gl-{$size}-{$i} {
-      width: (100 / 12) * $i * 1%;
-    }
-    
-    .gl-vertical > .gl-cell.gl-{$size}-{$i} {
-      height: (100 / 12) * $i * 1%;
-    }
-    
-  }
-  
-}
-
-/* default small grid
- */
-
-/*
-grid-sizes(sm);
-
-+media-query(md) {
-  grid-sizes(md);
-}
-
-+media-query(lg) {
-  grid-sizes(lg);
-}
-*/
 
 /* vertical alignment
  */
@@ -242,33 +187,4 @@ grid-sizes(sm);
 .gl-align-bottom {
   vertical-align: bottom;
 }
-
-/* spacing
- */
-/*
-.gl-spaced > .gl-row,
-.gl-spaced > .gl-row > .gl-scrollview,
-.gl-spaced > .gl-row > .gl-col > .gl-scrollview {
-  padding-top: 1em;
-}
-
-.gl-spaced > .gl-row:first-child,
-.gl-spaced > .gl-row:first-child > .gl-scrollview,
-.gl-spaced > .gl-row:first-child > .gl-col > .gl-scrollview {
-  padding-top: 0;
-}
-
-.gl-spaced > .gl-col,
-.gl-spaced > .gl-col > .gl-scrollview,
-.gl-spaced > .gl-row > .gl-col,
-.gl-spaced > .gl-row > .gl-col > .gl-scrollview {
-  padding-left: 1em;
-}
-
-.gl-spaced > .gl-col:first-child,
-.gl-spaced > .gl-col:first-child > .gl-scrollview,
-.gl-spaced > .gl-row > .gl-col:first-child,
-.gl-spaced > .gl-row > .gl-col:first-child > .gl-scrollview {
-  padding-left: 0;
-}*/
 

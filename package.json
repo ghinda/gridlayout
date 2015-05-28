@@ -7,9 +7,10 @@
   },
   "dependencies": {},
   "files": [
-    "./gridlayout.css",
-    "./gridlayout-ie.js",
-    "LICENSE"
+    "gridlayout.css",
+    "gridlayout.min.css",
+    "gridlayout-ie.js",
+    "gridlayout-ie.min.js"
   ],
   "devDependencies": {
     "connect-livereload": "^0.5.3",
