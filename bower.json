@@ -7,7 +7,7 @@
     "**/*",
     "!gridlayout.css",
     "!gridlayout.min.css",
-    "!gridlayout-ie.js"
+    "!gridlayout-ie.js",
     "!gridlayout-ie.min.js"
   ],
   "devDependencies": {
