@@ -92,6 +92,19 @@ module.exports = function (grunt) {
       }
     },
     uglify: {
+      server: {
+        options: {
+          compress: false,
+          mangle: false,
+          beautify: {
+            indent_level: 2,
+            beautify: true
+          }
+        },
+        files: {
+          'gridlayout-ie.js': 'src/gridlayout-ie.js'
+        }
+      },
       dist: {
         files: {
           'gridlayout-ie.min.js': 'src/gridlayout-ie.js'
