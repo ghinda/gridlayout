@@ -8,6 +8,7 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  grunt.loadNpmTasks('assemble');
 
   grunt.initConfig({
     watch: {
@@ -19,14 +20,14 @@ module.exports = function (grunt) {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          '{,*/}*.html',
+          'build/{,*/}*.html',
           '*.js',
           'test/*.js',
           '*.css'
         ]
       },
       jshint: {
-        files: [ 
+        files: [
           'src/*.js',
           'test/{,*/}*.js'
         ],
@@ -37,6 +38,12 @@ module.exports = function (grunt) {
           'src/*.styl'
         ],
         tasks: [ 'stylus:server' ]
+      },
+      assemble: {
+        files: [
+          'site/{,*/}*.{hbs,html}'
+        ],
+        tasks: [ 'assemble' ]
       }
     },
     connect: {
@@ -49,7 +56,9 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               lrSnippet,
-              mountFolder(connect, './')
+              mountFolder(connect, './'),
+              mountFolder(connect, './build/'),
+              mountFolder(connect, './site/')
             ];
           }
         }
@@ -58,7 +67,9 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             return [
-              mountFolder(connect, './')
+              mountFolder(connect, './'),
+              mountFolder(connect, './build/'),
+              mountFolder(connect, './site/')
             ];
           }
         }
@@ -151,6 +162,54 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    assemble: {
+      options: {
+        layoutdir: 'site/layouts'
+      },
+      site: {
+        files: [{
+          expand: true,
+          cwd: 'site',
+          src: '{,*/}*.hbs',
+          dest: 'build'
+        }]
+      }
+    },
+    clean: {
+      site: {
+        src: [
+          'build/'
+        ]
+      }
+    },
+    copy: {
+      site: {
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            src: [
+              'site/*',
+              '!site/**/*.{html,hbs}'
+            ],
+            dest: 'build/'
+          }
+        ]
+      }
+    },
+    buildcontrol: {
+      options: {
+        dir: 'build',
+        commit: true,
+        push: true
+      },
+      site: {
+        options: {
+          remote: 'git@github.com:ghinda/gridlayout.git',
+          branch: 'gh-pages'
+        }
+      }
     }
   });
 
@@ -166,6 +225,8 @@ module.exports = function (grunt) {
       'connect:livereload',
       'jshint',
       'stylus:server',
+      'clean',
+      'assemble',
       'watch'
     ]);
   });
@@ -178,10 +239,19 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'jshint',
     'uglify',
-    'stylus'
+    'stylus',
+    'clean',
+    'assemble',
+    'copy'
   ]);
 
   grunt.registerTask('default', [
     'build'
   ]);
+
+  grunt.registerTask('deploy', [
+    'build',
+    'buildcontrol'
+  ]);
+
 };
