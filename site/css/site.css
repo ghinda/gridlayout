@@ -6,14 +6,18 @@ html,
 body {
   display: block;
   height: 100%;
+  padding: 0;
   margin: 0;
 }
 
-body {
-  padding: 20px;
+/* demo pages
+ */
+
+.page-demo {
+
 }
 
-.gl-cell {
+.page-demo .gl-cell {
   background: lightgreen;
   outline: 1px solid #fff;
 }

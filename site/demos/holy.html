@@ -3,28 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <link href="/docs/docs.css" rel="stylesheet">
+  <link href="/css/site.css" rel="stylesheet">
   <link href="/gridlayout.css" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <style>
-    html,
-    body {
-      padding: 0;
-      margin: 0;
-    }
-    
-    .header {
-      height: 100px;
-    }
-    
-    .footer {
-      height: 50px;
-    }
-    
-  </style>
 </head>
-<body>
+<body class="page-demo">
 
   <div class="gl gl-vertical">
 
@@ -35,7 +18,7 @@
     </div>
 
     <div class="gl-cell">
-        
+
       <div class="gl">
 
         <div class="gl-cell gl-sm-2">
@@ -45,9 +28,9 @@
         </div>
 
         <div class="gl-cell">
-        
+
           <div class="js-cell-content"></div>
-          
+
           <a href="#" class="js-toggle-content">
             Toggle lots of cell content, to see the layout stretch
           </a>
@@ -71,27 +54,27 @@
     </div>
 
   </div>
-  
+
   <script>
     var markup = 'cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell';
-    
+
     var $content = document.querySelector('.js-cell-content');
     var $btnToggle = document.querySelector('.js-toggle-content');
     var content = false;
-    
+
     $btnToggle.addEventListener('click', function(e) {
       e.preventDefault();
-      
+
       if(content) {
         $content.innerHTML = '';
       } else {
         $content.innerHTML = markup;
       }
-      
+
       content = !content;
     });
   </script>
-  
+
   <script src="/src/gridlayout-ie.js"></script>
 
 </body>

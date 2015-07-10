@@ -19,7 +19,7 @@ bower install gridlayout
 Why use GridLayout?
 -------------------
 
-If you need to create advanced app layouts, similar to native app layouts, but still need to support older browsers.
+If you need to create complex app layouts, similar to native apps, but still need to support older browsers.
 
 If you just support modern browsers, you’re probably better off using Flexbox.
 

@@ -1,19 +1,19 @@
 {
   "name": "gridlayout",
   "version": "0.1.0",
+  "author": "Ionut Colceriu <contact@ghinda.net>",
+  "description": "Lightweight grid system for advanced horizontal and vertical web app layouts, with support for older browsers.",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ghinda/gridlayout.git"
   },
-  "dependencies": {},
   "files": [
-    "gridlayout.css",
-    "gridlayout.min.css",
-    "gridlayout-ie.js",
-    "gridlayout-ie.min.js",
+    "gridlayout*",
     "LICENSE",
     "README.md"
   ],
+  "dependencies": {},
   "devDependencies": {
     "assemble": "^0.4.42",
     "connect-livereload": "^0.5.3",
