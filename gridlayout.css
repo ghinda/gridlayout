@@ -1,5 +1,5 @@
 /* GridLayout
- * 
+ *
  * Ionuț Colceriu - ghinda.net
  * https://github.com/ghinda/gridlayout
  */
@@ -27,9 +27,9 @@
  */
 /* grid shows up md and up
  */
-/* min-width 641px
+/* min-width 640px
    */
-@media only screen and (min-width: 40.063em) {
+@media only screen and (min-width: 40em) {
   .gl {
     display: table;
     border-collapse: collapse;
@@ -220,9 +220,9 @@
 }
 /* large grid sizes
  */
-/* min-width 641px
+/* min-width 640px
    */
-@media only screen and (min-width: 64.063em) {
+@media only screen and (min-width: 64em) {
   .gl-cell.gl-lg-1 {
     width: 8.333333333333334%;
   }
