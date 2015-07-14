@@ -19,7 +19,7 @@ bower install gridlayout
 Why use GridLayout?
 -------------------
 
-If you need to create complex app layouts, similar to native apps, but still need to support older browsers.
+Create complex app layouts, similar to native ones, with support for older browsers.
 
 If you just support modern browsers, you’re probably better off using Flexbox.
 
@@ -117,7 +117,7 @@ The class names contain the media query breakpoint and the size.
 </div>
 ```
 
-You can also manually set a cell size with CSS, and the other cells, without a size set, will automatically resize.
+You can also manually set a cell size with CSS, and the other cells without a size set will automatically resize.
 
 ### Nesting
 
@@ -139,9 +139,9 @@ You can easily nest grids, just make sure you include the `gl` grid container.
 
 ### Scrollviews
 
-By default, the cell size will expand to fit its content.
+By default, the cells will expand to fit their contents.
 
-To have a fixed cell size, and have the content scroll, you can use the scrollview.
+To have fixed cell sizes, and have the content scroll, you can use the scrollview.
 
 Because of cross-browser concerns, the scrollview requires two containers.
 

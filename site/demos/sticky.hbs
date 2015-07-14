@@ -1,26 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <link href="/docs/docs.css" rel="stylesheet">
-  <link href="/gridlayout.css" rel="stylesheet">
-</head>
-<body>
+---
+layout: demo.html
+title: ''
+---
 
-  <div class="gl gl-vertical">
-  
-    <div class="gl-cell">
-      
+<div class="gl gl-vertical">
+
+  <div class="gl-cell">
+
+    <div class="content-hide" id="sticky-extra-content">
       content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
-      
     </div>
 
-    <div class="gl-cell" style="height: 100px">
-      footer
-    </div>
+    <button type="button" class="js-toggle-content" data-content="sticky-extra-content">
+      Toggle extra content, to see the footer stay at the bottom.
+    </button>
 
   </div>
 
-</body>
-</html>
+  <div class="gl-cell" style="height: 100px">
+    footer
+  </div>
+
+</div>

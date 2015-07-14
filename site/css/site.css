@@ -21,3 +21,19 @@ body {
   background: lightgreen;
   outline: 1px solid #fff;
 }
+
+.page-demo .header-demo {
+  height: 50px;
+  background: lightblue;
+}
+
+/* holy grai layout demo
+ */
+
+.content-hide {
+  display: none;
+}
+
+.content-show {
+  display: block !important;
+}
