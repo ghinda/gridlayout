@@ -1,5 +1,7 @@
-[GridLayout](https://ghinda.net/gridlayout/) [![Build Status](https://api.travis-ci.org/ghinda/gridlayout.svg)](https://travis-ci.org/ghinda/gridlayout)
-============
+[GridLayout](https://ghinda.net/gridlayout/)
+============================================
+
+[![Build Status](https://api.travis-ci.org/ghinda/gridlayout.svg)](https://travis-ci.org/ghinda/gridlayout)
 
 Lightweight grid system for advanced horizontal and vertical web app layouts, with support for older browsers.
 
@@ -106,9 +108,9 @@ On horizontal grids the size is the width, while on vertical grids the size is t
 
 The class names contain the media query breakpoint and the size.
 
-* Use **gl-sm-1** through **gl-sm-12** to size cells on any screen size. If you want the cells to show up small screens, make sure the grid container has the `gl-sm` class.
-* Use **gl-md-1** through **gl-md-12** for cell sizes on medium screens.
-* Use **gl-lg-1** through **gl-lg-12** for cell sizes on large screens.
+* Use `gl-sm-1` through `gl-sm-12` to size cells on any screen size. If you want the cells to show up small screens, make sure the grid container has the `gl-sm` class.
+* Use `gl-md-1` through `gl-md-12` for cell sizes on medium screens.
+* Use `gl-lg-1` through `gl-lg-12` for cell sizes on large screens.
 
 ```
 <div class="gl">
