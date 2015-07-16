@@ -23,9 +23,9 @@
   "devDependencies": {
     "normalize-css": "~2",
     "jasmine": "~2.2.1",
-    "prism": "gh-pages",
-    "respond": "~1.4.2"
+    "prism": "~1.0.0",
+    "respond": "~1.4.2",
+    "normalize.css": "~3.0.3"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

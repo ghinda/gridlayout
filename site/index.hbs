@@ -3,279 +3,303 @@ layout: main.html
 title: ''
 ---
 
-<header>
+<header class="header-home">
 
-  <h1>
-    <a href="https://github.com/ghinda/gridlayout/">
-      GridLayout
-    </a>
-  </h1>
+  <div class="container">
 
-  <p>
-    Lightweight grid system for advanced horizontal and vertical web app layouts, with support for older browsers.
-  </p>
+    <h1 class="logo-gridlayout">
+      <a href="https://github.com/ghinda/gridlayout/">
+        GridLayout
+      </a>
+    </h1>
 
-  <div>
-
-    <pre>
-      <code>
-        npm install gridlayout
-      </code>
-    </pre>
-
-    <pre>
-      <code>
-        bower install gridlayout
-      </code>
-    </pre>
+    <p class="header-tagline">
+      Lightweight grid system for advanced horizontal and vertical web app layouts, with support for older browsers.
+    </p>
 
   </div>
 
-  <a href="#">
+  <div class="header-code">
+
+    <pre><code><a href="https://www.npmjs.com/package/gridlayout/">npm</a> install gridlayout</code></pre>
+    <pre><code><a href="http://bower.io/">bower</a> install gridlayout</code></pre>
+
+  </div>
+
+  <a href="https://github.com/ghinda/gridlayout/archive/master.zip" class="button button-primary">
     Download
   </a>
 
-  <a href="#">
+  <a href="https://github.com/ghinda/gridlayout" class="button">
     View on GitHub
   </a>
 
 </header>
 
-<h2>
-  Why use GridLayout?
-</h2>
+<div class="container">
 
-<p>
-  Create complex app layouts, similar to native ones, with support for older browsers.
-</p>
+  <section>
 
-<p>
-  <em>
-    *If you just support modern browsers, you’re probably better off using Flexbox.
-  </em>
-</p>
+    <div class="gl">
 
-<h2>
-  Browser support
-</h2>
+      <div class="gl-cell">
 
-<ul>
-  <li>
-    IE 8+
-  </li>
-  <li>
-    iOS 5+
-  </li>
-  <li>
-    Android 3+
-  </li>
-  <li>
-    Modern browsers
-  </li>
-</ul>
+        <h2>
+          Why use GridLayout?
+        </h2>
 
-<p>
-  Browsers that support the overall grid, but not the scrollview:
-</p>
+        <p>
+          If you need to create complex app layouts, similar to native ones, with support for older browsers.
+        </p>
 
-<ul>
-  <li>
-    Opera Mini
-  </li>
-  <li>
-    iOS 4
-  </li>
-  <li>
-    Android 2
-  </li>
-</ul>
+        <p>
+          <em>
+            *If you just support modern browsers, you’re probably better off using Flexbox.
+          </em>
+        </p>
 
-<p>
-  <strong>Note:</strong>
-</p>
+      </div>
 
-<p>
-  For overall IE support you have to include the <code>gridlayout-ie.js</code> script.
-</p>
+      <div class="gl-cell">
 
-<p>
-  For IE8, also include
-  <a href="https://github.com/scottjehl/Respond" target="_blank">
-    Respond.js
-  </a>,
-  because the grid is mobile-first.
-</p>
+        <h2>
+          Browser support
+        </h2>
 
+        <ul>
+          <li>
+            IE 8+
+          </li>
+          <li>
+            iOS 5+
+          </li>
+          <li>
+            Android 3+
+          </li>
+          <li>
+            Modern browsers
+          </li>
+        </ul>
 
+        <p>
+          Browsers that support the overall grid, but not the scrollview:
+        </p>
 
-<h2>
-  Demos
-</h2>
+        <ul>
+          <li>
+            Opera Mini
+          </li>
+          <li>
+            iOS 4
+          </li>
+          <li>
+            Android 2
+          </li>
+        </ul>
 
-<ul>
-  <li>
-    <a href="/demos/simple.html">
-      Simple Layout
-    </a>
-  </li>
-  <li>
-    <a href="/demos/sticky.html">
-      Sticky Footer
-    </a>
-  </li>
-  <li>
-    <a href="/demos/holy.html">
-      Holy Grail Layout
-    </a>
-  </li>
-  <li>
-    <a href="/demos/mail.html">
-      Email App
-    </a>
-  </li>
-</ul>
+        <p>
+          <strong>Note:</strong>
+        </p>
 
+        <p>
+          For overall IE support you have to include the <code>gridlayout-ie.js</code> script.
+        </p>
 
+        <p>
+          For IE8, also include
+          <a href="https://github.com/scottjehl/Respond" target="_blank">
+            Respond.js
+          </a>,
+          because the grid is mobile-first.
+        </p>
 
-<h2>
-  How to use
-</h2>
+      </div>
 
-<h3>
-  Basic layouts
-</h3>
+  </section>
 
-<p>
-  GridLayout is built using
-  <code>
-    display: table
-  </code>,
-  so you don't have to specify an exact cell size.
-</p>
+  <section>
+    <h2>
+      Demos
+    </h2>
 
-<p>
-  If you don't set cell sizes, they will be evenly sized.
-</p>
+    <ul>
+      <li>
+        <a href="/demos/simple.html">
+          Simple Layout
+        </a>
+      </li>
+      <li>
+        <a href="/demos/sticky.html">
+          Sticky Footer
+        </a>
+      </li>
+      <li>
+        <a href="/demos/holy.html">
+          Holy Grail Layout
+        </a>
+      </li>
+      <li>
+        <a href="/demos/mail.html">
+          Email App
+        </a>
+      </li>
+    </ul>
 
-<pre><code>
+  </section>
+
+  <section>
+
+    <h2>
+      How to use
+    </h2>
+
+    <h3>
+      Basic layouts
+    </h3>
+
+    <p>
+      GridLayout is built using
+      <code>
+        display: table
+      </code>,
+      so you don't have to specify an exact cell size.
+    </p>
+
+    <p>
+      If you don't set cell sizes, they will be evenly sized.
+    </p>
+
+<pre><code class="language-markup">
 &lt;div class=&quot;gl&quot;&gt;
   &lt;div class=&quot;gl-cell&quot;&gt;...&lt;/div&gt;
   &lt;div class=&quot;gl-cell&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
-<h3>
-  Vertical layout
-</h3>
+    <h3>
+      Vertical layout
+    </h3>
 
-<p>
-  You can also do vertical layouts, using the <code>gl-vertical</code> class on the grid container.
-</p>
+    <p>
+      You can also do vertical layouts, using the <code>gl-vertical</code> class on the grid container.
+    </p>
 
-<p>
-  Vertical layouts will take up the entire height of their container.
-</p>
+    <p>
+      Vertical layouts will take up the entire height of their container.
+    </p>
 
-<pre><code>
+<pre><code class="language-markup">
 &lt;div class=&quot;gl gl-vertical&quot;&gt;
   &lt;div class=&quot;gl-cell&quot;&gt;...&lt;/div&gt;
   &lt;div class=&quot;gl-cell&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
-<h3>
-  Media queries
-</h3>
+  </section>
 
-<p>
-  The breakpoints used in GridLayout are:
-</p>
+  <section>
 
-<ul>
-  <li>
-    <strong>
-      Small (sm):
-    </strong>
-    all screen sizes.
-  </li>
-  <li>
-    <strong>
-      Medium (md):
-    </strong>
-    any screen 640px or wider.
-  </li>
-  <li>
-    <strong>
-      Large (lg):
-    </strong>
-    any screen 1024px or wider.
-  </li>
-</ul>
+    <h3>
+      Media queries
+    </h3>
 
-<p>
-  By default, the grid will show up on
-  <strong>
-    medium
-  </strong>(640px or wider) screens.
-</p>
+    <p>
+      The breakpoints used in GridLayout are:
+    </p>
 
-<p>
-  If you want the grid to show up on any screen size, use the <code>gl-sm</code> class.
-</p>
+    <ul>
+      <li>
+        <strong>
+          Small (sm):
+        </strong>
+        all screen sizes.
+      </li>
+      <li>
+        <strong>
+          Medium (md):
+        </strong>
+        any screen 640px or wider.
+      </li>
+      <li>
+        <strong>
+          Large (lg):
+        </strong>
+        any screen 1024px or wider.
+      </li>
+    </ul>
 
-<pre><code>
+    <p>
+      By default, the grid will show up on
+      <strong>
+        medium
+      </strong>(640px or wider) screens.
+    </p>
+
+    <p>
+      If you want the grid to show up on any screen size, use the <code>gl-sm</code> class.
+    </p>
+
+<pre><code class="language-markup">
 &lt;div class=&quot;gl gl-sm&quot;&gt;
   ...
 </code></pre>
 
-<h3>
-  Column sizing
-</h3>
+  </section>
 
-<p>
-  GridLayout provides a 12-column grid that you can use on both horizontal and vertical grids.
-</p>
+  <section>
 
-<p>
-  On horizontal grids the size is the width, while on vertical grids the size is the cell height.
-</p>
+    <h3>
+      Column sizing
+    </h3>
 
-<p>
-  The class names contain the media query breakpoint and the size.
-</p>
+    <p>
+      GridLayout provides a 12-column grid that you can use on both horizontal and vertical grids.
+    </p>
 
-<ul>
-  <li>
-    Use <code>gl-sm-1</code> through <code>gl-sm-12</code> to size cells on any screen size. If you want the cells to show up small screens, make sure the grid container has the <code>gl-sm</code> class.
-  </li>
-  <li>
-    Use <code>gl-md-1</code> through <code>gl-md-12</code> for cell sizes on medium screens.
-  </li>
-  <li>
-    Use <code>gl-lg-1</code> through <code>gl-lg-12</code> for cell sizes on large screens.
-  </li>
-</ul>
+    <p>
+      On horizontal grids the size is the width, while on vertical grids the size is the cell height.
+    </p>
 
-<pre><code>
+    <p>
+      The class names contain the media query breakpoint and the size.
+    </p>
+
+    <ul>
+      <li>
+        Use <code>gl-sm-1</code> through <code>gl-sm-12</code> to size cells on any screen size. If you want the cells to show up small screens, make sure the grid container has the <code>gl-sm</code> class.
+      </li>
+      <li>
+        Use <code>gl-md-1</code> through <code>gl-md-12</code> for cell sizes on medium screens.
+      </li>
+      <li>
+        Use <code>gl-lg-1</code> through <code>gl-lg-12</code> for cell sizes on large screens.
+      </li>
+    </ul>
+
+<pre><code class="language-markup">
 &lt;div class=&quot;gl&quot;&gt;
   &lt;div class=&quot;gl-cell gl-md-4 gl-lg-2&quot;&gt;...&lt;/div&gt;
   &lt;div class=&quot;gl-cell gl-md-8 gl-lg-10&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
-<p>
-  You can also manually set a cell size with CSS, and the other cells without a size set will automatically resize.
-</p>
+    <p>
+      You can also manually set a cell size with CSS, and the other cells without a size set will automatically resize.
+    </p>
 
-<h3>
-  Nesting
-</h3>
+  </section>
 
-<p>
-  You can easily nest grids, just make sure you include the <code>gl</code> grid container.
-</p>
+  <section>
 
-<pre><code>
+    <h3>
+      Nesting
+    </h3>
+
+    <p>
+      You can easily nest grids, just make sure you include the <code>gl</code> grid container.
+    </p>
+
+<pre><code class="language-markup">
 &lt;div class=&quot;gl gl-vertical&quot;&gt;
   &lt;div class=&quot;gl-cell&quot;&gt;&NewLine;
 
@@ -289,23 +313,27 @@ title: ''
 &lt;/div&gt;
 </code></pre>
 
-<h3>
-  Scrollviews
-</h3>
+  </section>
 
-<p>
-  By default, the cells will expand to fit their contents.
-</p>
+  <section>
 
-<p>
-  To have fixed cell sizes, and have the content scroll, you can use the scrollview.
-</p>
+    <h3>
+      Scrollviews
+    </h3>
 
-<p>
-  Because of cross-browser concerns, the scrollview requires two containers.
-</p>
+    <p>
+      By default, the cells will expand to fit their contents.
+    </p>
 
-<pre><code>
+    <p>
+      To have fixed cell sizes, and have the content scroll, you can use the scrollview.
+    </p>
+
+    <p>
+      Because of cross-browser concerns, the scrollview requires two containers.
+    </p>
+
+<pre><code class="language-markup">
 &lt;div class=&quot;gl&quot;&gt;
   &lt;div class=&quot;gl-cell&quot;&gt;
 
@@ -319,41 +347,52 @@ title: ''
 &lt;/div&gt;
 </code></pre>
 
-<h3>
-  Vertically aligning content
-</h3>
+  </section>
 
-<p>
-  You can align content vertically inside cells using the <code>gl-align-middle</code> and <code>gl-align-bottom</code> classes.
-</p>
+  <section>
 
-<pre><code>
+    <h3>
+      Vertically aligning content
+    </h3>
+
+    <p>
+      You can align content vertically inside cells using the <code>gl-align-middle</code> and <code>gl-align-bottom</code> classes.
+    </p>
+
+<pre><code class="language-markup">
 &lt;div class=&quot;gl&quot;&gt;
   &lt;div class=&quot;gl-cell gl-align-middle&quot;&gt;...&lt;/div&gt;
   &lt;div class=&quot;gl-cell gl-align-bottom&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
+  </section>
+
+</div>
 
 
 <footer>
 
-  <p>
-    <a href="https://github.com/ghinda/gridlayout">
-      GridLayout
-    </a>
-    is a project by
-    <a href="http://ghinda.net">
-      Ionuț Colceriu
-    </a>.
-  </p>
+  <div class="container">
 
-  <p>
-    Licensed under the MIT license.
-  </p>
+    <p>
+      <a href="https://github.com/ghinda/gridlayout">
+        GridLayout
+      </a>
+      is a project by
+      <a href="http://ghinda.net">
+        Ionuț Colceriu
+      </a>.
+    </p>
 
-  <p>
-    Follow <a href="https://twitter.com/ghindas">@ghindas</a>.
-  </p>
+    <p>
+      Licensed under the MIT license.
+    </p>
+
+    <p>
+      Follow <a href="https://twitter.com/ghindas">@ghindas</a>.
+    </p>
+
+  </div>
 
 </footer>

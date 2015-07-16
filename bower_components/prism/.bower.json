@@ -1,5 +1,6 @@
 {
   "name": "prism",
+  "version": "1.0.0",
   "main": [
     "prism.js",
     "themes/prism.css"
@@ -22,13 +23,14 @@
     "utopia.js",
     "code.js"
   ],
-  "_release": "596fb1ee33",
+  "_release": "1.0.0",
   "_resolution": {
-    "type": "branch",
-    "branch": "gh-pages",
-    "commit": "596fb1ee3327b1a37380e3919c793dcc907a0d39"
+    "type": "version",
+    "tag": "v1.0.0",
+    "commit": "534f34cd35526481e4a32ac4d1eaf447a5a64bf2"
   },
   "_source": "git://github.com/LeaVerou/prism.git",
-  "_target": "gh-pages",
-  "_originalSource": "prism"
+  "_target": "~1.0.0",
+  "_originalSource": "prism",
+  "_direct": true
 }

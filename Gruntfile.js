@@ -21,9 +21,8 @@ module.exports = function (grunt) {
         },
         files: [
           'build/{,*/}*.html',
-          '*.js',
-          'test/*.js',
-          '*.css'
+          '{,site/**/}*.css',
+          '{,test/**/, site/**/}*.js'
         ]
       },
       jshint: {
@@ -192,6 +191,12 @@ module.exports = function (grunt) {
             src: [
               'site/*',
               '!site/**/*.{html,hbs}'
+            ],
+            dest: 'build/'
+          },
+          {
+            src: [
+              'bower_components/*'
             ],
             dest: 'build/'
           }

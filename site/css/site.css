@@ -8,23 +8,109 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+
+  font-family: sans-serif;
 }
 
-/* demo pages
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+
+h2 {
+  margin: 0 0 20px;
+
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+.button {
+  display: inline-block;
+  padding: .5em 1em;
+  border: 1px solid grey;
+
+  text-decoration: none;
+}
+
+.button-primary {
+  background: black;
+  border-color: black;
+
+  color: #fff;
+}
+
+/* index
  */
 
-.page-demo {
+/* header
+ */
 
+.header-home {
+  padding: 8px 8px 40px;
+  margin: 0 0 40px;
+  background: lightgrey;
+
+  text-align: center;
 }
 
-.page-demo .gl-cell {
+.logo-gridlayout {
+  font-size: 28px;
+  text-decoration:none;
+}
+
+.header-tagline {
+  font-size: 24px;
+  line-height: 1.8em;
+}
+
+.header-code {
+  margin: 0 -8px 28px;
+  padding: 8px;
+  background: grey;
+}
+
+.header-code pre {
+  margin: 0 0 1em;
+}
+
+.header-code pre:last-child {
+  margin-bottom: 0;
+}
+
+/* footer
+ */
+
+footer {
+  padding: 8px;
+}
+
+/* demo grids
+ */
+
+.gl-highlight .gl-cell {
   background: lightgreen;
   outline: 1px solid #fff;
 }
 
-.page-demo .header-demo {
-  height: 50px;
-  background: lightblue;
+.gl-inner {
+  padding: 4px;
 }
 
 /* holy grai layout demo
