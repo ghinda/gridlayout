@@ -46,9 +46,6 @@
   }
   .gl .gl-fill {
     height: 100%;
-/* IE9+ adds spacing around nested tables otherwise,
-    * causing scrollbars on scrollviews.
-    */
   }
   .gl > .gl-cell > .gl-scrollview > .gl-scrollview-content {
     position: absolute;
@@ -321,9 +318,6 @@
 }
 .gl-sm .gl-fill {
   height: 100%;
-/* IE9+ adds spacing around nested tables otherwise,
-    * causing scrollbars on scrollviews.
-    */
 }
 .gl-sm > .gl-cell > .gl-scrollview > .gl-scrollview-content {
   position: absolute;
