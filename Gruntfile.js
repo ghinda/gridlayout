@@ -22,7 +22,7 @@ module.exports = function (grunt) {
         files: [
           'build/{,*/}*.html',
           '{,site/**/}*.css',
-          '{,test/**/, site/**/}*.js'
+          '{,test/**/,site/**/,src/}*.js'
         ]
       },
       jshint: {
@@ -55,9 +55,10 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               lrSnippet,
-              mountFolder(connect, './'),
               mountFolder(connect, './build/'),
-              mountFolder(connect, './site/')
+              mountFolder(connect, './src/'),
+              mountFolder(connect, './site/'),
+              mountFolder(connect, './')
             ];
           }
         }
@@ -106,6 +107,7 @@ module.exports = function (grunt) {
         options: {
           compress: false,
           mangle: false,
+          preserveComments: 'all',
           beautify: {
             indent_level: 2,
             beautify: true

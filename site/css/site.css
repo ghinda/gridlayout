@@ -34,6 +34,7 @@ p {
 
 .container {
   max-width: 800px;
+  padding: 0 8px;
   margin: 0 auto;
 }
 
@@ -92,6 +93,13 @@ section {
 
 .header-code pre:last-child {
   margin-bottom: 0;
+}
+
+/* why use gridlayout
+*/
+
+.logo-browser {
+  width: 10px;
 }
 
 /* footer

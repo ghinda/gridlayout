@@ -89,63 +89,85 @@ gl() {
     display: table-row;
   }
 
-  /* needs an absolute container, because IE and FF don't
-   * support overflow: auto on table cells.
-   * only an absolute container will take up the entire cell size.
-   */
-
-  &.gl-vertical > .gl-cell > .gl-scrollview {
-    display: table-cell;
-    position: relative;
-  }
-
-  /* scrollview-content needs to be content-box, because IE9
-   * deducts the scrollbar width twice, on absolutely positioned
-   * border-box elements.
-   * https://social.msdn.microsoft.com/forums/ie/en-us/47c5148f-a142-4a99-9542-5f230c78cb3b/ie9-issue-with-boxsizing-borderbox
-   * https://stackoverflow.com/questions/23555327/ie9-shrinking-div-on-overflowauto-scrollbar-appearance
-   */
-
-  & > .gl-cell > .gl-scrollview > .gl-scrollview-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-
-    /* scrollviews in ios
-    */
-    overflow-scrolling: touch;
-  }
-
-
-  /* nested grids take up the full height
+  /* grids with .gl-fill take up the full height
    */
 
   /* IE8 does not expand nested grids to take up the full height,
-   * unless included in a scrollview.
+   * unless included in a table-cell (.gl-vertical uses table rows).
+   * That's why we have to use the IE script in IE8 as well.
    */
 
-  & > .gl-cell > &,
-  & > .gl-cell > .gl-scrollview > .gl-scrollview-content > & {
+  .gl-fill {
     height: 100%;
 
     /* IE9+ adds spacing around nested tables otherwise,
     * causing scrollbars on scrollviews.
     */
-    overflow: hidden;
+    // overflow: hidden;
+  }
+
+  //
+  // & > .gl-cell > &,
+  // & > .gl-cell > .gl-scrollview > .gl-scrollview-content > & {
+  //   height: 100%;
+  //
+  //   /* IE9+ adds spacing around nested tables otherwise,
+  //   * causing scrollbars on scrollviews.
+  //   */
+  //   overflow: hidden;
+  // }
+
+  /* scrollview
+   */
+
+  /* needs an absolute container, because IE and FF don't
+  * support overflow: auto on table cells.
+  * only an absolute container will take up the entire cell size.
+  */
+  & > .gl-cell > .gl-scrollview > .gl-scrollview-content {
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 1;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+
+   /* scrollviews in ios
+   */
+   overflow-scrolling: touch;
   }
 
   /* IE8 and FF don't set the right height
    * on cells without non-absolute content.
    * IE9+ needs real, non-whitespace, (eg. \A) content.
    */
-
   & > .gl-cell > .gl-scrollview:after {
     content: '*';
     visibility: hidden;
+  }
+
+  /* when the scrollview parent is a table cell,
+   * `.gl-scrollview` has a wrong height,
+   * even if the `.gl-scrollview-content` has the correct height.
+   */
+  & > .gl-cell > .gl-scrollview {
+    display: block;
+    height: 100%;
+  }
+
+  /* `.gl-cell`s are table rows in vertical grids.
+   * so we set the scrollview parent as a table cell.
+   */
+  &.gl-vertical > .gl-cell > .gl-scrollview {
+   position: relative;
+   display: table-cell;
+
+   /* set height auto so we don't use the height: 100% set
+    * for horizontal grids.
+    * this prevents the table cell from expanding in horizontal grids.
+    */
+   height: auto;
   }
 
 }

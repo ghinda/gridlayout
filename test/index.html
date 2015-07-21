@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="/bower_components/jasmine/lib/jasmine-core/jasmine.css">
   <link rel="stylesheet" href="/gridlayout.css">
-  
+
   <!--[if lte IE 8]>
   <script src="/bower_components/respond/dest/respond.min.js"></script>
   <![endif]-->
@@ -30,7 +30,7 @@
         <div class="gl-scrollview">
           <div class="gl-scrollview-content">
 
-            <div class="gl gl-sm">
+            <div class="gl gl-sm gl-fill">
 
               <div class="gl-cell width-50 first-column">
                 col
@@ -71,53 +71,53 @@
     </div>
 
   </div>
-  
+
   <div class="fixture fixture-dynamic">
-  
+
     <div class="gl gl-vertical gl-sm">
-      
+
       <div class="gl-cell header">
         row
       </div>
-      
+
       <div class="gl-cell content">
-        
+
         <div class="gl-scrollview">
           <div class="gl-scrollview-content">
-          
-            <div class="gl gl-sm">
-              
+
+            <div class="gl gl-sm gl-fill">
+
               <div class="gl-cell column">
                 col
               </div>
-              
+
             </div>
-            
+
           </div>
         </div>
-        
+
       </div>
-      
+
     </div>
-  
+
   </div>
 
   <script src="/src/gridlayout-ie.js"></script>
-  
+
   <!-- IE8 support -->
   <script src="polyfill/polyfill.min.js"></script>
-  
+
   <script src="/bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
   <script src="/bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
   <script src="/bower_components/jasmine/lib/jasmine-core/boot.js"></script>
   <script src="/bower_components/jasmine-jsreporter/jasmine-jsreporter.js"></script>
-  
+
   <script>
     // hack to delay jasmine,
     // after respond.js kicks in.
     // for ie8 support.
     var prevLoad = window.onload;
-    
+
     window.onload = function() {
       setTimeout(prevLoad, 500);
     };
@@ -126,7 +126,7 @@
   <script>
     jasmine.getEnv().addReporter(new jasmineRequire.JSReporter2());
   </script>
-  
+
   <script src="holygrail.spec.js"></script>
   <script src="dynamic.spec.js"></script>
 

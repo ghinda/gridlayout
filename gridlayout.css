@@ -44,9 +44,11 @@
   .gl.gl-vertical > .gl-cell {
     display: table-row;
   }
-  .gl.gl-vertical > .gl-cell > .gl-scrollview {
-    display: table-cell;
-    position: relative;
+  .gl .gl-fill {
+    height: 100%;
+/* IE9+ adds spacing around nested tables otherwise,
+    * causing scrollbars on scrollviews.
+    */
   }
   .gl > .gl-cell > .gl-scrollview > .gl-scrollview-content {
     position: absolute;
@@ -57,21 +59,26 @@
     height: 100%;
     overflow: auto;
 /* scrollviews in ios
-    */
+   */
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
-  }
-  .gl > .gl-cell > .gl,
-  .gl > .gl-cell > .gl-scrollview > .gl-scrollview-content > .gl {
-    height: 100%;
-/* IE9+ adds spacing around nested tables otherwise,
-    * causing scrollbars on scrollviews.
-    */
-    overflow: hidden;
   }
   .gl > .gl-cell > .gl-scrollview:after {
     content: '*';
     visibility: hidden;
+  }
+  .gl > .gl-cell > .gl-scrollview {
+    display: block;
+    height: 100%;
+  }
+  .gl.gl-vertical > .gl-cell > .gl-scrollview {
+    position: relative;
+    display: table-cell;
+/* set height auto so we don't use the height: 100% set
+    * for horizontal grids.
+    * this prevents the table cell from expanding in horizontal grids.
+    */
+    height: auto;
   }
   .gl-cell.gl-sm-1 {
     width: 8.333333333333334%;
@@ -312,9 +319,11 @@
 .gl-sm.gl-vertical > .gl-cell {
   display: table-row;
 }
-.gl-sm.gl-vertical > .gl-cell > .gl-scrollview {
-  display: table-cell;
-  position: relative;
+.gl-sm .gl-fill {
+  height: 100%;
+/* IE9+ adds spacing around nested tables otherwise,
+    * causing scrollbars on scrollviews.
+    */
 }
 .gl-sm > .gl-cell > .gl-scrollview > .gl-scrollview-content {
   position: absolute;
@@ -325,21 +334,26 @@
   height: 100%;
   overflow: auto;
 /* scrollviews in ios
-    */
+   */
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
-}
-.gl-sm > .gl-cell > .gl-sm,
-.gl-sm > .gl-cell > .gl-scrollview > .gl-scrollview-content > .gl-sm {
-  height: 100%;
-/* IE9+ adds spacing around nested tables otherwise,
-    * causing scrollbars on scrollviews.
-    */
-  overflow: hidden;
 }
 .gl-sm > .gl-cell > .gl-scrollview:after {
   content: '*';
   visibility: hidden;
+}
+.gl-sm > .gl-cell > .gl-scrollview {
+  display: block;
+  height: 100%;
+}
+.gl-sm.gl-vertical > .gl-cell > .gl-scrollview {
+  position: relative;
+  display: table-cell;
+/* set height auto so we don't use the height: 100% set
+    * for horizontal grids.
+    * this prevents the table cell from expanding in horizontal grids.
+    */
+  height: auto;
 }
 .gl-sm .gl-cell.gl-sm-1 {
   width: 8.333333333333334%;

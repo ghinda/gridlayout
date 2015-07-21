@@ -3,13 +3,13 @@
 
 describe('Holy Grail Layout', function() {
   'use strict';
-  
+
   var dom = {};
-  
+
   beforeAll(function() {
-    
+
     dom.$fixture = document.querySelector('.fixture-holygrail');
-    
+
     dom.fixture = dom.$fixture.getBoundingClientRect();
     dom.container = dom.$fixture.querySelector('.gl-vertical').getBoundingClientRect();
     dom.header = dom.$fixture.querySelector('.header').getBoundingClientRect();
@@ -24,7 +24,7 @@ describe('Holy Grail Layout', function() {
 
     dom.$bottomContent = document.querySelector('.bottom-content');
     dom.bottomContent = dom.$bottomContent.getBoundingClientRect();
-    
+
   });
 
   it('should take up the full height of the container', function() {
@@ -58,7 +58,7 @@ describe('Holy Grail Layout', function() {
   });
 
   it('should not have the bottom content into view ', function() {
-    
+
     expect(dom.bottomContent.top).toBeGreaterThan(dom.scrollview.top + dom.scrollview.height);
 
   });
@@ -70,20 +70,20 @@ describe('Holy Grail Layout', function() {
     // give it a second to finish scrolling
     setTimeout(function() {
       dom.bottomContent = dom.$bottomContent.getBoundingClientRect();
-      
+
       // clean-up after yourself
       dom.$scrollview.scrollTop = 0;
-      
+
       // for IE8
       var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      
+
       scrollTop = 0;
-      
+
       // refresh the scrollview boundingClientRect, for Opera 12
       dom.scrollview = dom.$scrollview.getBoundingClientRect();
-      
+
       expect(dom.bottomContent.top).toBeLessThan(dom.scrollview.top + dom.scrollview.height);
-      
+
       done();
 
     });
@@ -91,4 +91,3 @@ describe('Holy Grail Layout', function() {
   });
 
 });
-
