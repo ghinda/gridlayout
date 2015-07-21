@@ -32,6 +32,10 @@ p {
   margin: 0 0 1em;
 }
 
+img {
+  max-width: 100%;
+}
+
 .container {
   max-width: 800px;
   padding: 0 8px;
@@ -55,6 +59,11 @@ section {
   border-color: black;
 
   color: #fff;
+}
+
+p code {
+  padding: 1px;
+  background: #efefef;
 }
 
 /* index
@@ -95,11 +104,47 @@ section {
   margin-bottom: 0;
 }
 
-/* why use gridlayout
+/* browsers
 */
 
 .logo-browser {
-  width: 10px;
+  width: 44px;
+  margin-bottom: 8px;
+}
+
+.browsers-supported {
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.browsers-supported li {
+  padding-right: 4px;
+}
+
+.browsers-limited {
+  padding: 0 0 4px 12px;
+}
+
+.browsers-limited img {
+  opacity: .5;
+}
+
+.notice-browsers-limited {
+  padding: 0 4px 4px;
+  border-width: 0 0 1px 1px;
+  border-style: solid;
+  border-color: #efefef;
+
+  font-weight: normal;
+}
+
+.notice-ie-support {
+  font-size: 13px;
+}
+
+.notice-ie-support p {
+  margin-bottom: .5em;
 }
 
 /* footer
@@ -130,4 +175,11 @@ footer {
 
 .content-show {
   display: block !important;
+}
+
+/* demo header
+ */
+
+.header-demo {
+  height: 50px;
 }

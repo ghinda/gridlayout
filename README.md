@@ -139,6 +139,16 @@ You can easily nest grids, just make sure you include the `gl` grid container.
 </div>  
 ```
 
+If you need a grid to take up the full height of its container, you can use the `gl-fill` class.
+
+```
+<div class="gl gl-vertical">
+  <div class="gl-cell">
+
+    <div class="gl gl-fill">
+    ...
+```
+
 ### Scrollviews
 
 By default, the cells will expand to fit their contents.

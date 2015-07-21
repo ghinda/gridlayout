@@ -66,56 +66,70 @@ title: ''
           Browser support
         </h2>
 
-        <ul class="gl">
-          <li class="gl-cell">
-            <!-- <img src="/images/logo-ie.png" class="logo-browser" width="10"> -->
-            IE 8+
-          </li>
-          <li class="gl-cell">
-            <!-- <img src="/images/logo-safari-ios.png" class="logo-browser" width="10"> -->
-            iOS 5+
-          </li>
-          <li class="gl-cell">
-            <!-- <img src="/images/logo-android.png" class="logo-browser" width="10"> -->
-            Android 3+
-          </li>
-          <li class="gl-cell">
-            <!-- <img src="/images/logo-browser-modern.png" class="logo-browser" width="10"> -->
-            Modern browsers
-          </li>
-        </ul>
+        <div class="gl">
 
-        <p>
-          Browsers that support the overall grid, but not the scrollview:
-        </p>
+          <div class="gl-cell browsers-supported">
 
-        <ul>
-          <li>
-            Opera Mini
-          </li>
-          <li>
-            iOS 4
-          </li>
-          <li>
-            Android 2
-          </li>
-        </ul>
+            <ul class="gl">
+              <li class="gl-cell">
+                <img src="/images/logo-ie.png" class="logo-browser">
+                IE 8+
+              </li>
+              <li class="gl-cell">
+                <img src="/images/logo-safari-ios.png" class="logo-browser">
+                iOS 5+
+              </li>
+              <li class="gl-cell">
+                <img src="/images/logo-android.png" class="logo-browser">
+                Android 3+
+              </li>
+              <li class="gl-cell">
+                <img src="/images/logo-browser-modern.png" class="logo-browser">
+                Modern browsers
+              </li>
+            </ul>
 
-        <p>
-          <strong>Note:</strong>
-        </p>
+          </div>
 
-        <p>
-          For overall IE support you have to include the <code>gridlayout-ie.js</code> script.
-        </p>
+          <div class="gl-cell browsers-supported browsers-limited">
 
-        <p>
-          For IE8, also include
-          <a href="https://github.com/scottjehl/Respond" target="_blank">
-            Respond.js
-          </a>,
-          because the grid is mobile-first.
-        </p>
+            <ul class="gl">
+              <li class="gl-cell">
+                <img src="/images/logo-opera-mini.png" class="logo-browser">
+                Opera Mini
+              </li>
+              <li class="gl-cell">
+                <img src="/images/logo-safari-ios4.png" class="logo-browser">
+                iOS 4
+              </li>
+              <li class="gl-cell">
+                <img src="/images/logo-android2.png" class="logo-browser">
+                Android 2.3
+              </li>
+            </ul>
+
+            <p class="notice-browsers-limited">
+              Support the overall grid, but not the <a href="#scrollview">scrollview</a>.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="notice-ie-support">
+          <p>
+            <strong>Note:</strong>
+          </p>
+
+          <p>
+            For IE support you must include the <code>gridlayout-ie.js</code> script.
+          </p>
+
+          <p>
+            IE8 also requires <a href="https://github.com/scottjehl/Respond" target="_blank">Respond.js</a>,
+            because the grid is mobile-first.
+          </p>
+        </div>
 
       </div>
 
@@ -163,9 +177,7 @@ title: ''
 
     <p>
       GridLayout is built using
-      <code>
-        display: table
-      </code>,
+      <code>display: table</code>,
       so you don't have to specify an exact cell size.
     </p>
 
@@ -317,12 +329,25 @@ title: ''
 &lt;/div&gt;
 </code></pre>
 
+  <p>
+    If you need a grid to take up the full height of its container, you can use the <code>gl-fill</code> class.
+  </p>
+
+<pre><code class="language-markup">
+&lt;div class=&quot;gl&quot;&gt;
+  &lt;div class=&quot;gl-cell&quot;&gt;
+    &lt;div class=&quot;gl gl-fill&quot;&gt;
+    ...
+</code></pre>
+
   </section>
 
   <section>
 
     <h3>
-      Scrollviews
+      <a id="scrollview">
+        Scrollviews
+      </a>
     </h3>
 
     <p>
