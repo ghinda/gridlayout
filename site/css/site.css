@@ -2,6 +2,10 @@
  * website
  */
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   display: block;
@@ -30,6 +34,8 @@ h3 {
 
 p {
   margin: 0 0 1em;
+
+  line-height: 1.4em;
 }
 
 img {
@@ -37,7 +43,7 @@ img {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 820px;
   padding: 0 8px;
   margin: 0 auto;
 }
@@ -61,9 +67,40 @@ section {
   color: #fff;
 }
 
-p code {
-  padding: 1px;
+code {
+  padding: 2px;
   background: #efefef;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+a {
+  color: #008033;
+}
+
+a:focus,
+a:hover {
+  color: #00aa44;
+}
+
+a:active,
+a:visited {
+  color: #005522;
+}
+
+ul {
+  margin: 0 0 1em;
+}
+
+.list-inline {
+  list-style-type: none;
+}
+
+.list-inline li {
+  display: inline-block;
 }
 
 /* index
@@ -75,7 +112,7 @@ p code {
 .header-home {
   padding: 8px 8px 40px;
   margin: 0 0 40px;
-  background: lightgrey;
+  background: #f2f2f2;
 
   text-align: center;
 }
@@ -93,7 +130,7 @@ p code {
 .header-code {
   margin: 0 -8px 28px;
   padding: 8px;
-  background: grey;
+  background: #ececec;
 }
 
 .header-code pre {
@@ -122,6 +159,11 @@ p code {
   padding-right: 4px;
 }
 
+.browsers-supported img {
+  display: block;
+  margin: 0 auto;
+}
+
 .browsers-limited {
   padding: 0 0 4px 12px;
 }
@@ -131,7 +173,7 @@ p code {
 }
 
 .notice-browsers-limited {
-  padding: 0 4px 4px;
+  padding: 4px;
   border-width: 0 0 1px 1px;
   border-style: solid;
   border-color: #efefef;
@@ -145,6 +187,13 @@ p code {
 
 .notice-ie-support p {
   margin-bottom: .5em;
+}
+
+/* code
+*/
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f2f2f2;
 }
 
 /* footer
