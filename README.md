@@ -141,7 +141,7 @@ You can easily nest grids, just make sure you include the `gl` grid container.
 </div>  
 ```
 
-If you need a grid to take up the full height of its container, you can use the `gl-fill` class.
+To make a grid to take up the full height of its container, use the `gl-fill` class.
 
 ```
 <div class="gl gl-vertical">

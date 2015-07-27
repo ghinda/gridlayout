@@ -3,22 +3,410 @@ layout: demo.html
 title: ''
 ---
 
-<div class="gl gl-highlight">
+<div class="container">
 
-  <div class="gl-cell gl-align-bottom">
-    bottom
-  </div>
+  <section>
 
-  <div class="gl-cell gl-align-middle" style="height: 300px">
+    <h2>
+      Basic grids
+    </h2>
 
-    <div style="background: blue; width: 100px; height: 100px">
-      middle
+    <p>
+      GridLayout is built using <code>display: table</code>, so you don't have to specify an exact cell size. The cells will be evenly sized depending on the number of cells you use.
+    </p>
+
+    <div class="gl gl-highlight">
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/2
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/2
+        </div>
+
+      </div>
+
     </div>
 
-  </div>
+    <div class="gl gl-highlight">
 
-  <div class="gl-cell">
-    top
-  </div>
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/3
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/3
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/3
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="gl gl-highlight">
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/4
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/4
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/4
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/4
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="gl gl-highlight">
+
+      <div class="gl-cell">
+        <div class="gl-inner">
+          Equal height columns
+        </div>
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+
+          <blockquote>
+            “There are no hierarchies in nature other than those imposed by hierarchical modes of human thought, but rather differences merely in function between and within living things.”
+          </blockquote>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2>
+      Vertical grids
+    </h2>
+
+    <p>
+      You can also do vertical layouts, using the <code>gl-vertical</code> class on the grid container.
+    </p>
+
+    <div class="gl gl-vertical gl-highlight" style="height: 300px">
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/2
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/2
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2>
+      Individual cell sizing
+    </h2>
+
+    <p>
+      GridLayout provides a 12-column grid that you can use on both horizontal and vertical grids, with classes are similar to the Bootstrap grid.
+    </p>
+
+    <p>
+      You can also manually set a cell size with CSS, and the other cells will automatically resize.
+    </p>
+
+    <div class="gl gl-highlight">
+
+      <div class="gl-cell gl-sm-4">
+
+        <div class="gl-inner">
+          gl-sm-4
+        </div>
+
+      </div>
+
+      <div class="gl-cell gl-sm-6">
+
+        <div class="gl-inner">
+          gl-sm-6
+        </div>
+
+      </div>
+
+      <div class="gl-cell gl-sm-2">
+
+        <div class="gl-inner">
+          gl-sm-2
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="gl gl-highlight">
+
+      <div class="gl-cell gl-md-2 gl-lg-4">
+
+        <div class="gl-inner">
+          gl-md-2 gl-lg-4
+        </div>
+
+      </div>
+
+      <div class="gl-cell gl-md-10 gl-lg-8">
+
+        <div class="gl-inner">
+          gl-md-10 gl-lg-8
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="gl gl-highlight">
+
+      <div class="gl-cell" style="width: 200px">
+
+        <div class="gl-inner">
+          width: 200px
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          Automatic sizing
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2>
+      Nesting
+    </h2>
+
+    <p>
+      You can easily nest grids, just make sure you include the <code>gl</code> grid container.
+    </p>
+
+    <p>
+    To make a grid to take up the full height of its container, use the <code>gl-fill</code> class.
+  </p>
+
+    <div class="gl gl-highlight" style="height: 400px">
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          1/2
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl gl-vertical">
+
+          <div class="gl-cell">
+
+            <div class="gl-scrollview">
+              <div class="gl-scrollview-content">
+
+                <div class="gl-inner">
+                  1/2
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="gl-cell">
+
+            <div class="gl-scrollview">
+              <div class="gl-scrollview-content">
+
+                <div class="gl gl-fill">
+
+                  <div class="gl-cell">
+
+                    <div class="gl gl-vertical">
+
+                      <div class="gl-cell">
+
+                        <div class="gl-scrollview">
+                          <div class="gl-scrollview-content">
+
+                            <div class="gl gl-fill">
+
+                              <div class="gl-cell">
+                                <div class="gl-inner">
+                                  1/2
+                                </div>
+                              </div>
+
+                              <div class="gl-cell">
+                                <div class="gl gl-vertical">
+
+                                  <div class="gl-cell">
+                                    <div class="gl-inner">
+                                      1/2
+                                    </div>
+                                  </div>
+
+                                  <div class="gl-cell">
+                                    <div class="gl-inner">
+                                      1/2
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="gl-cell">
+
+                        <div class="gl-scrollview">
+                          <div class="gl-scrollview-content">
+
+                            <div class="gl-inner">
+                              1/2
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="gl-cell">
+                    <div class="gl-inner">
+                      1/2
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2>
+      Vertically aligning content
+    </h2>
+
+    <p>
+      You can align content vertically inside cells using the <code>gl-align-middle</code> and <code>gl-align-bottom</code> classes.
+    </p>
+
+    <div class="gl gl-highlight" style="height: 200px">
+
+      <div class="gl-cell gl-align-bottom">
+
+        <div class="gl-inner">
+          gl-align-bottom
+        </div>
+
+      </div>
+
+      <div class="gl-cell gl-align-middle">
+
+        <div class="gl-inner">
+          gl-align-middle
+        </div>
+
+      </div>
+
+      <div class="gl-cell">
+
+        <div class="gl-inner">
+          default top alignment
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
 
 </div>

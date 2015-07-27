@@ -32,11 +32,16 @@
       }
 
       return false;
+    } else {
+
+      e.preventDefault();
+
+      var dropdown = e.target.parentNode;
+
+      toggleClass(dropdown, 'dropdown-active');
+
+
     }
-
-    var dropdown = e.target.parentNode;
-
-    toggleClass(dropdown, 'dropdown-active');
 
   };
 

@@ -19,6 +19,10 @@
 }
 .gl-cell {
   position: relative;
+/* align at the top by default,
+  * to fix issues with inline-block elements padding messing up
+  * the vertical positioning of sibling cells, in horizontal grids.
+  */
   vertical-align: top;
 }
 /* cell sizes mixin.

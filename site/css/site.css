@@ -69,10 +69,20 @@ a:visited {
   color: #536c53;
 }
 
+blockquote {
+  margin: 0 0 1em;
+  padding-left: 2em;
+  border-left: 5px solid rgba(0,0,0,.1);
+
+  font-family: serif;
+  line-height: 1.6em;
+}
+
 .container {
   max-width: 840px;
   padding: 0 8px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 section {
@@ -89,6 +99,7 @@ section {
   color: #008033;
   font-weight: bold;
   text-decoration: none;
+  text-align: center;
 
   transition:  all .1s;
 }
@@ -328,12 +339,14 @@ footer {
  */
 
 .gl-highlight .gl-cell {
-  background: lightgreen;
+  background: #e3f4d7;
   outline: 1px solid #fff;
+
+  color: #333;
 }
 
 .gl-inner {
-  padding: 4px;
+  padding: 1em;
 }
 
 /* demo header
@@ -345,11 +358,11 @@ footer {
 }
 
 .header-demo .gl-cell {
-  /*padding: 8px;*/
+  padding: 8px;
 }
 
 .header-demo h1 {
-  margin: 0 0 .4em;
+  margin: 0;
 
   font-size: 20px;
 }
@@ -360,8 +373,13 @@ footer {
   font-size: 12px;
 }
 
-.header-demo .dropdown-button {
+.header-demo .dropdown {
   float: right;
+  width: 152px;
+}
+
+.header-demo .dropdown-button {
+  margin: 0;
 }
 
 /* dropdown
@@ -372,15 +390,17 @@ footer {
 }
 
 .dropdown-button {
+  display: block;
 }
 
 .dropdown-content {
   list-style-type: none;
   position: absolute;
-  top: 1em;
+  top: 40px;
   left: 0;
   z-index: 9;
   display: none;
+  width: 100%;
   padding: 0;
   margin: 0;
   border: 1px solid #efefef;
@@ -393,13 +413,21 @@ footer {
 
 .dropdown-content a {
   display: block;
-  padding: 4px;
+  padding: 8px;
 
   text-decoration: none;
 }
 
 .dropdown-content a:hover {
   background: #efefef;
+}
+
+/* demo content
+*/
+
+.content-demo .container {
+  height: 100%;
+  padding-top: 20px;
 }
 
 /* holy grai layout demo
