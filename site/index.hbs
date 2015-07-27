@@ -5,15 +5,19 @@ title: ''
 
 <header class="header-home">
 
-  <h1 class="logo-gridlayout">
-    <a href="/">
-      <img src="/images/logo-gridlayout.png" alt="GridLayout">
-    </a>
-  </h1>
+  <div class="container">
 
-  <p class="header-tagline">
-    Lightweight grid system for advanced horizontal and vertical web app layouts, with support for older browsers.
-  </p>
+    <h1 class="logo-gridlayout">
+      <a href="/">
+        <img src="/images/logo-gridlayout.png" alt="GridLayout">
+      </a>
+    </h1>
+
+    <p class="header-tagline">
+      Lightweight grid system for advanced horizontal and vertical web app layouts, with support for older browsers.
+    </p>
+    
+  </div>
 
   <div class="header-get">
 
@@ -142,7 +146,7 @@ title: ''
     </h2>
 
     <ul class="list-inline gl">
-      <li class="gl-cell">
+      <li class="gl-cell block-demo">
         <a href="/demos/simple.html">
           <img src="/images/thumb-demo-simple.png">
           Simple Layout
@@ -152,7 +156,7 @@ title: ''
           Simple horizontal and vertical grids, with easy vertical alignment.
         </p>
       </li>
-      <li class="gl-cell">
+      <li class="gl-cell block-demo">
         <a href="/demos/sticky.html">
           <img src="/images/thumb-demo-sticky-footer.png">
           Sticky Footer
@@ -162,7 +166,7 @@ title: ''
           Have the footer stay at the bottom, regardless of how much content you have.
         </p>
       </li>
-      <li class="gl-cell">
+      <li class="gl-cell block-demo">
         <a href="/demos/holy.html">
           <img src="/images/thumb-demo-holy.png">
           Holy Grail Layout
@@ -172,7 +176,7 @@ title: ''
           A simpler solution for the <a href="https://en.wikipedia.org/wiki/Holy_Grail_(web_design)" target="_blank">Holy Grail Layout</a>.
         </p>
       </li>
-      <li class="gl-cell">
+      <li class="gl-cell block-demo">
         <a href="/demos/mail.html">
           <img src="/images/thumb-demo-mail.png">
           Email App
@@ -351,7 +355,7 @@ title: ''
 </code></pre>
 
   <p>
-    If you need a grid to take up the full height of its container, you can use the <code>gl-fill</code> class.
+    If you need a grid to take up the full height of its container, use the <code>gl-fill</code> class.
   </p>
 
 <pre><code class="language-markup">
@@ -419,27 +423,32 @@ title: ''
 </div>
 
 
-<footer>
+<footer class="section-footer">
 
   <div class="container">
 
-    <p>
-      <a href="https://github.com/ghinda/gridlayout">
-        GridLayout
-      </a>
-      is a project by
-      <a href="http://ghinda.net">
-        Ionuț Colceriu
-      </a>.
-    </p>
+    <div class="gl">
 
-    <p>
-      Licensed under the MIT license.
-    </p>
+      <div class="gl-cell">
 
-    <p>
-      Follow <a href="https://twitter.com/ghindas">@ghindas</a>.
-    </p>
+        <p>
+          Source code available on GitHub: <a href="https://github.com/ghinda/gridlayout">ghinda/gridlayout</a>.
+        </p>
+
+        <p>
+          GridLayout is a project by
+          <a href="https://ghinda.net">Ionuț Colceriu</a>.
+        </p>
+
+      </div>
+
+      <div class="gl-cell">
+        <p>
+          Licensed under the MIT license.
+        </p>
+      </div>
+
+    </div>
 
   </div>
 

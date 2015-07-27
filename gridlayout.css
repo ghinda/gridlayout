@@ -19,6 +19,7 @@
 }
 .gl-cell {
   position: relative;
+  vertical-align: top;
 }
 /* cell sizes mixin.
  * 12 rows/columns.

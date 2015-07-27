@@ -23,6 +23,8 @@ Why use GridLayout?
 
 If you need to create complex app layouts, similar to native ones, with support for older browsers.
 
+GridLayout is a ~1 KB (minified and gzipped) CSS file and a ~0.5 KB JavaScript file used only for Internet Explorer support.
+
 If you just support modern browsers, you’re probably better off using Flexbox.
 
 Features

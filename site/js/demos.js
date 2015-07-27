@@ -18,18 +18,48 @@
 
   };
 
-  var toggleContent = function(e) {
-    e.preventDefault();
+  var toggleDropdown = function(e) {
 
-    var contentNode = document.getElementById(e.target.getAttribute('data-content'));
+    var dropdowns = document.querySelectorAll('.dropdown');
+    var i;
 
-    toggleClass(contentNode, 'content-show');
+    if(e.target.className.indexOf('dropdown-button') === -1) {
+      // close all dropdowns
+      for(i = 0; i < dropdowns.length; i++) {
+        if(dropdowns[i].className.indexOf('dropdown-active') !== -1) {
+          toggleClass(dropdowns[i], 'dropdown-active');
+        }
+      }
+
+      return false;
+    }
+
+    var dropdown = e.target.parentNode;
+
+    toggleClass(dropdown, 'dropdown-active');
+
   };
 
-  var $btnToggle = document.querySelectorAll('.js-toggle-content');
+  var toggleContent = function(e) {
 
-  for(var i=0; i < $btnToggle.length; i++) {
-    $btnToggle[i].addEventListener('click', toggleContent);
-  }
+    if(e.target.className.indexOf('js-toggle-content') !== -1) {
+      e.preventDefault();
+
+      var contentNode = document.getElementById(e.target.getAttribute('data-content'));
+
+      toggleClass(contentNode, 'content-show');
+    }
+
+  };
+
+  var init = function() {
+    // init content togglers
+    document.body.addEventListener('click', toggleDropdown);
+
+    // init dropdowns
+    document.body.addEventListener('click', toggleContent);
+  };
+
+  init();
 
 })();

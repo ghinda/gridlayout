@@ -65,9 +65,8 @@ a:hover {
   color: #00aa44;
 }
 
-a:active,
 a:visited {
-  color: #005522;
+  color: #536c53;
 }
 
 .container {
@@ -84,6 +83,7 @@ section {
   position: relative;
   display: inline-block;
   padding: .6em 2em;
+  margin-bottom: .4em;
   border: 1px solid #008033;
 
   color: #008033;
@@ -97,10 +97,15 @@ section {
   top: 1px;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   border-color: #00aa44;
 
   color: #00aa44;
+}
+
+.button:focus {
+  outline: 1px dotted #00aa44;
 }
 
 .button-primary {
@@ -110,7 +115,8 @@ section {
   color: #fff;
 }
 
-.button-primary:hover {
+.button-primary:hover,
+.button-primary:focus {
   background: #00aa44;
   border-color: #00aa44;
 
@@ -122,15 +128,13 @@ ul {
 }
 
 .list-inline {
+  padding: 0;
   list-style-type: none;
 }
 
 .list-inline li {
   display: inline-block;
 }
-
-/* index
- */
 
 /* header
  */
@@ -247,25 +251,77 @@ ul {
 }
 
 .notice-ie-support {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .notice-ie-support p {
   margin-bottom: .5em;
 }
 
+/* demos
+*/
+
+.block-demo > a {
+  display: block;
+  margin-bottom: 12px;
+
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.block-demo img {
+  display: block;
+  margin: 0 0 4px -6px;
+  opacity: .6;
+}
+
+.block-demo a:hover {
+  text-decoration: underline;
+}
+
+.block-demo a:hover img {
+  opacity: 1;
+}
+
+
 /* code
 */
+
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background: #f2f2f2;
+  margin-bottom: 2em;
 }
 
 /* footer
- */
+*/
 
 footer {
   padding: 8px;
+}
+
+/* footer
+*/
+
+.section-footer {
+  margin-bottom: 40px;
+}
+
+.section-footer .container {
+  padding-top: 20px;
+  border-top: 1px solid #efefef;
+
+  font-size: 14px;
+}
+
+.section-footer p {
+  margin-bottom: .4em;
+}
+
+@media only screen and (min-width: 40em) {
+  .section-footer .gl-cell:last-of-type {
+    text-align: right;
+  }
 }
 
 /* demo grids
@@ -280,6 +336,72 @@ footer {
   padding: 4px;
 }
 
+/* demo header
+*/
+
+.header-demo {
+  height: 30px;
+  background: #f2f2f2;
+}
+
+.header-demo .gl-cell {
+  /*padding: 8px;*/
+}
+
+.header-demo h1 {
+  margin: 0 0 .4em;
+
+  font-size: 20px;
+}
+
+.button-back {
+  padding-bottom: 8px;
+
+  font-size: 12px;
+}
+
+.header-demo .dropdown-button {
+  float: right;
+}
+
+/* dropdown
+*/
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+}
+
+.dropdown-content {
+  list-style-type: none;
+  position: absolute;
+  top: 1em;
+  left: 0;
+  z-index: 9;
+  display: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #efefef;
+  background: #fff;
+}
+
+.dropdown-active .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 4px;
+
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background: #efefef;
+}
+
 /* holy grai layout demo
  */
 
@@ -289,11 +411,4 @@ footer {
 
 .content-show {
   display: block !important;
-}
-
-/* demo header
- */
-
-.header-demo {
-  height: 50px;
 }
