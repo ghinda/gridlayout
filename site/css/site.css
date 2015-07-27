@@ -175,8 +175,10 @@ ul {
 /* why
 */
 
-.section-why {
-  padding-right: 40px;
+@media only screen and (min-width: 40em) {
+  .section-why {
+    padding-right: 40px;
+  }
 }
 
 
