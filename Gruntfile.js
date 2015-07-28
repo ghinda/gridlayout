@@ -190,11 +190,10 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            flatten: true,
+            cwd: 'site/',
             src: [
-              'site/*',
-              '!site/partials/*',
-              '!site/**/*.{html,hbs}'
+              '**/*',
+              '!**/*.{html,hbs,md}'
             ],
             dest: 'build/'
           },
