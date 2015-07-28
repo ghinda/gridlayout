@@ -25,7 +25,8 @@
     "jasmine": "~2.2.1",
     "prism": "~1.0.0",
     "respond": "~1.4.2",
-    "normalize.css": "~3.0.3"
+    "normalize.css": "~3.0.3",
+    "html5shiv": "~3.7.3"
   },
   "dependencies": {}
 }
