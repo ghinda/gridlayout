@@ -187,10 +187,10 @@ You can align content vertically inside cells using the `gl-align-middle` and `g
 Examples
 --------
 
-* [Holy Grail Layout]()
-* [Email App]()
-* [Simple Layout]()
-* [Sticky Footer]()
+* [Simple Layout](https://ghinda.net/gridlayout/demos/simple.html)
+* [Sticky Footer](https://ghinda.net/gridlayout/demos/sticky.html)
+* [Holy Grail Layout](https://ghinda.net/gridlayout/demos/holy.html)
+* [Email App](https://ghinda.net/gridlayout/demos/mail.html)
 
 License
 -------
