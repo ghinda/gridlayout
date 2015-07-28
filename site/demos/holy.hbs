@@ -5,9 +5,11 @@ title: ''
 
 <div class="gl gl-vertical gl-highlight">
 
-  <div class="gl-cell header">
+  <div class="gl-cell header" style="height: 80px">
 
-    header
+    <div class="gl-inner">
+      Holy Grail Header
+    </div>
 
   </div>
 
@@ -17,27 +19,43 @@ title: ''
 
       <div class="gl-cell gl-sm-2">
 
-        left
+        <div class="gl-inner">
+          Left Sidebar
+        </div>
 
       </div>
 
       <div class="gl-cell">
 
-        <div class="content-hide" id="holy-extra-content">
+        <div class="gl-inner">
 
-          cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell<br>cell
+          <h2>
+            Holy Grail layout
+          </h2>
+
+          <button class="button button-primary js-toggle-content" data-content="holy-extra-content">
+            Toggle extra content
+          </button>
+
+          <div class="content-hide" id="holy-extra-content">
+
+            <blockquote>
+              {{#markdown}}
+                {{> extra-content }}
+              {{/markdown}}
+            </blockquote>
+
+          </div>
 
         </div>
-
-        <button class="js-toggle-content" data-content="holy-extra-content">
-          Toggle extra content, to see the layout shrink and stretch.
-        </button>
 
       </div>
 
       <div class="gl-cell gl-sm-2">
 
-        right
+        <div class="gl-inner">
+          Right Sidebar
+        </div>
 
       </div>
 
@@ -45,9 +63,11 @@ title: ''
 
   </div>
 
-  <div class="gl-cell footer">
+  <div class="gl-cell footer" style="height: 50px">
 
-    footer
+    <div class="gl-inner">
+      Holy Grail Footer
+    </div>
 
   </div>
 

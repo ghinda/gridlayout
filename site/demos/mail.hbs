@@ -1,104 +1,127 @@
 ---
 layout: demo.html
-title: ''
+title: 'GridMail'
+mails:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
 ---
 
 <div class="gl gl-vertical gl-highlight">
 
-  <div class="gl-cell" style="height: 50px; background: blue">
-    header
+  <div class="gl-cell mail-header">
+
+    <div class="gl-inner">
+
+      <h2>
+        GridMail
+      </h2>
+
+    </div>
+
   </div>
 
   <div class="gl-cell">
 
-    <div class="gl-scrollview">
-      <div class="gl-scrollview-content">
+    <div class="gl gl-fill">
 
-        <div class="gl">
+      <div class="gl-cell gl-sm-2">
 
-          <div class="gl-cell gl-sm-1">
+        <div class="gl-inner">
 
-            left
+          <button class="button button-primary button-full">
+            Compose
+          </button>
 
-          </div>
+          <ul class="mail-list">
+            <li>
+              <a href="#">
+                Inbox
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Sent Messages
+              </a>
+            </li>
+          </ul>
 
-          <div class="gl-cell">
+        </div>
 
-            <div class="gl-scrollview">
-              <div class="gl-scrollview-content">
+      </div>
 
-                <a class="button secondary expand hide-for-medium" zf-open="sub-nav">This</a>
-                <section class="block-list">
+      <div class="gl-cell gl-sm-4">
+
+        <div class="gl-scrollview">
+          <div class="gl-scrollview-content">
+
+            <div class="gl-inner">
+
+              <ul class="mail-list">
                 <li>
-                <input type="text" placeholder="Search">
+                  <input type="text" placeholder="Search">
+                </li>
+                {{#each mails}}
+                <li>
+                  <a href="#">
+                    <h4>
+                      Message title
+                    </h4>
+                    <p>
+                      Message content preview that is longer than the title..
+                    </p>
+                  </a>
+                </li>
+                {{/each}}
+              </ul>
 
-                </li><li>
-                <a zf-toggle="message">
-                <h5>This is a message</h5>
-                <p>It's a pretty long message, but thats chill, we totes like to read now a days.</p>
-                </a>
-                </li>
-                <li>
-                <a zf-toggle="message">
-                <h5>This is a message</h5>
-                <p>It's a pretty long message, but thats chill, we totes like to read now a days.</p>
-                </a>
-                </li>
-                <li>
-                <a zf-toggle="message">
-                <h5>This is a message</h5>
-                <p>It's a pretty long message, but thats chill, we totes like to read now a days.</p>
-                </a>
-                </li>
-                <li>
-                <a zf-toggle="message">
-                <h5>This is a message</h5>
-                <p>It's a pretty long message, but thats chill, we totes like to read now a days.</p>
-                </a>
-                </li>
-                <li>
-                <a zf-toggle="message">
-                <h5>This is a message</h5>
-                <p>It's a pretty long message, but thats chill, we totes like to read now a days.</p>
-                </a>
-                </li>
-                <li>
-                <a zf-toggle="message">
-                <h5>This is a message</h5>
-                <p>It's a pretty long message, but thats chill, we totes like to read now a days.</p>
-                </a>
-                </li>
-                </section>
-
-              </div>
             </div>
 
           </div>
+        </div>
 
-          <div class="gl-cell">
+      </div>
 
-            <div class="gl-scrollview">
-              <div class="gl-scrollview-content">
+      <div class="gl-cell">
 
-                <a class="hide-for-medium button tiny ng-scope" zf-close="message">Back</a>
-                <h2 class="ng-scope">This is a message</h2>
-                <p class="ng-scope">Mike Meyers - 6/12/2014</p>
-                <hr class="ng-scope">
-                <p class="ng-scope">Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
-                </p>
-                <p class="ng-scope">Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
-                </p>
-                <p class="ng-scope">Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
-                </p>
-                <p class="ng-scope">Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
-                </p>
+        <div class="gl-scrollview">
+          <div class="gl-scrollview-content">
 
+            <div class="gl-inner">
 
-              </div>
+              <button class="button">Back</button>
+
+              <h2>This is a message</h2>
+              <p>Some Name - 6/12/2015</p>
+
+              <hr>
+
+              <p>
+                Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
+              </p>
+
+              <p>
+                Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
+              </p>
+
+              <p>
+                Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
+              </p>
+
+              <p>
+                Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
+              </p>
+
             </div>
 
           </div>
-
         </div>
 
       </div>
@@ -107,8 +130,12 @@ title: ''
 
   </div>
 
-  <div class="gl-cell" style="height: 100px">
-    footer
+  <div class="gl-cell mail-status">
+    <div class="gl-inner">
+      <strong>
+        Status Bar
+      </strong>
+    </div>
   </div>
 
 </div>

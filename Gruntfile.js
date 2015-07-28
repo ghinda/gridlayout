@@ -40,7 +40,7 @@ module.exports = function (grunt) {
       },
       assemble: {
         files: [
-          'site/{,*/}*.{hbs,html}'
+          'site/{,*/}*.{hbs,html,md}'
         ],
         tasks: [ 'assemble' ]
       }
@@ -166,13 +166,14 @@ module.exports = function (grunt) {
     },
     assemble: {
       options: {
-        layoutdir: 'site/layouts'
+        layoutdir: 'site/layouts',
+        partials: 'site/partials/*.md'
       },
       site: {
         files: [{
           expand: true,
           cwd: 'site',
-          src: '{,*/}*.hbs',
+          src: '{,*/}*.{hbs,md}',
           dest: 'build'
         }]
       }
@@ -192,6 +193,7 @@ module.exports = function (grunt) {
             flatten: true,
             src: [
               'site/*',
+              '!site/partials/*',
               '!site/**/*.{html,hbs}'
             ],
             dest: 'build/'

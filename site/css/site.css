@@ -20,6 +20,7 @@ body {
 h1,
 h2,
 h3,
+h4,
 .header-tagline {
   color: #333;
   font-weight: 300;
@@ -34,6 +35,11 @@ h2 {
 
 h3 {
   font-size: 32px;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 p {
@@ -117,6 +123,11 @@ section {
 
 .button:focus {
   outline: 1px dotted #00aa44;
+}
+
+.button-full {
+  display: block;
+  width: 100%;
 }
 
 .button-primary {
@@ -353,7 +364,7 @@ footer {
 */
 
 .header-demo {
-  height: 30px;
+  min-height: 60px;
   background: #f2f2f2;
 }
 
@@ -374,7 +385,6 @@ footer {
 }
 
 .header-demo .dropdown {
-  float: right;
   width: 152px;
 }
 
@@ -385,8 +395,13 @@ footer {
 /* dropdown
 */
 
+.dropdown-container {
+  text-align: right;
+}
+
 .dropdown {
   position: relative;
+  display: inline-block;
 }
 
 .dropdown-button {
@@ -405,6 +420,8 @@ footer {
   margin: 0;
   border: 1px solid #efefef;
   background: #fff;
+
+  text-align: left;
 }
 
 .dropdown-active .dropdown-content {
@@ -439,7 +456,7 @@ footer {
   padding-bottom: 20px;
 }
 
-/* holy grai layout demo
+/* content toggler
  */
 
 .content-hide {
@@ -448,4 +465,62 @@ footer {
 
 .content-show {
   display: block !important;
+}
+
+/* mail app demo
+*/
+
+.gl-cell.mail-header {
+  height: 80px;
+  background: #5fbcd3;
+
+  text-align: center;
+}
+
+.mail-header h2 {
+  margin: 0;
+}
+
+.gl-cell.mail-status {
+  height: 40px;
+  background: #b7c4c8;
+
+  font-size: 12px;
+}
+
+.mail-list {
+  display: block;
+  margin: 0 -1em;
+  padding: 0;
+  list-style-type: none;
+}
+
+.mail-list li {
+  display: block;
+}
+
+.mail-list a {
+  display: block;
+  padding: 1em;
+  border-bottom: 1px solid #fff;
+
+  text-decoration: none;
+}
+
+.mail-list a:hover {
+  background: #fff;
+}
+
+.mail-list input {
+  display: block;
+  width: 100%;
+  padding: 1em;
+}
+
+.mail-list h4 {
+  margin: 0;
+}
+
+.mail-list p {
+  margin: 0;
 }
