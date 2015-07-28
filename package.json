@@ -1,6 +1,6 @@
 {
   "name": "gridlayout",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Ionut Colceriu <contact@ghinda.net>",
   "description": "Lightweight grid system for advanced horizontal and vertical web app layouts, with support for older browsers.",
   "license": "MIT",
