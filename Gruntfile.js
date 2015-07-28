@@ -67,9 +67,7 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             return [
-              mountFolder(connect, './'),
-              mountFolder(connect, './build/'),
-              mountFolder(connect, './site/')
+              mountFolder(connect, './build/')
             ];
           }
         }
@@ -198,8 +196,16 @@ module.exports = function (grunt) {
             dest: 'build/'
           },
           {
+            expand: true,
             src: [
-              'bower_components/*'
+              'bower_components/**/*'
+            ],
+            dest: 'build/'
+          },
+          {
+            expand: true,
+            src: [
+              'gridlayout*'
             ],
             dest: 'build/'
           }
