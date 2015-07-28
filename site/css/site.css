@@ -130,7 +130,8 @@ section {
   width: 100%;
 }
 
-.button-primary {
+.button-primary,
+.button-primary:visited {
   background: #008033;
   border-color: #008033;
 
