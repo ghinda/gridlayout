@@ -1,7 +1,9 @@
 
 ## [1.0.1] - [unreleased]
 
-*
+* Improvements to the IE-support script for slightly better performance and better support for IE8.
+* Fix issues with extra right-side padding on scrollviews, in IE9.
+* Website improvements and IE fixes.
 
 ## [1.0.0] - 2015-07-28
 

@@ -59,7 +59,13 @@ layout: main.html
 
   </div>
 
-  <div class="gl-cell content-demo">
+  <!--
+  TODO:
+  Document that people should use `gl-fill` instead of height: 100%, for the IE script to find and fix their heights.
+  Also use `gl-fill` on `gl-cell`s that are parents to other `gl-fill` containers (and are not `.gl`), for Firefox to pass on the correct height to the children.
+  -->
+
+  <div class="gl-cell gl-fill">
     {{> body }}
   </div>
 </div>

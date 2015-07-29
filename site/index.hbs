@@ -404,6 +404,36 @@ title: ''
   <section>
 
     <h3>
+      Full height children
+    </h3>
+
+    <p>
+      To have a full-height child element in a <code>gl-cell</code> without using a scrollview (eg. as with sticky footers) use the <code>gl-fill</code> class, instead of <code>height: 100%</code>, on the child element.
+    </p>
+
+    <p>
+      This helps the IE support script find your element and size it correctly, because IE doesn't pass the correct height to <code>gl-cell</code> children.
+    </p>
+
+    <p>
+      Because of Firefox issues with passing height to child elements without having a specific height set on the parent, you also have to use the <code>gl-fill</code> class on the parent <code>gl-cell</code>.
+    </p>
+
+<pre><code class="language-markup">
+&lt;div class=&quot;gl&quot;&gt;
+  &lt;div class=&quot;gl-cell gl-fill&quot;&gt;
+    &lt;div class=&quot;gl-fill&quot;&gt;
+      Full Cell Height Container
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+  </section>
+
+  <section>
+
+    <h3>
       Vertically aligning content
     </h3>
 
