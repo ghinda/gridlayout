@@ -341,10 +341,14 @@ footer {
   margin-bottom: .4em;
 }
 
-@media only screen and (min-width: 40em) {
-  .section-footer .gl-cell:last-of-type {
-    text-align: right;
-  }
+/* IE8 support
+*/
+.section-footer .gl-cell {
+  text-align: right;
+}
+
+.section-footer .gl-cell:first-child {
+  text-align: left;
 }
 
 /* demo grids
@@ -442,20 +446,6 @@ footer {
 
 /* demo content
 */
-
-/* Firefox fix for the sticky footer demo.
-* Firefox doesn't pass the table-cell height to relative block elements,
-* if it's not specifically set on the cell.
-*/
-.content-demo {
-  height: 100%;
-}
-
-.content-demo .container {
-  height: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
 
 /* content toggler
  */
