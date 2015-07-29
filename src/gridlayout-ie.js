@@ -43,6 +43,11 @@
 
   })();
 
+  var bounceSetGridSizes = function() {
+    // IE8 needs a while to finish up the layout
+    setTimeout(setGridSizes, 300);
+  };
+
   // set the correct grid and scrollview sizes
   var setGridSizes = function() {
 
@@ -58,60 +63,55 @@
     var cell;
     var parent;
 
-    // IE8 needs a while to finish up the layout
-    setTimeout(function() {
+    for(i = 0; i < $cells.length; i++) {
 
-      for(i = 0; i < $cells.length; i++) {
+      cell = getBoundingClientRect.call($cells[i]);
+      $parent = $cells[i].parentNode;
+      parent = getBoundingClientRect.call($parent);
 
-        cell = getBoundingClientRect.call($cells[i]);
-        $parent = $cells[i].parentNode;
-        parent = getBoundingClientRect.call($parent);
+      var parentDisplay;
+      if($parent.currentStyle) {
+        parentDisplay = $parent.currentStyle.display;
+      } else {
+        parentDisplay = window.getComputedStyle($parent).display;
+      }
 
-        var parentDisplay;
-        if($parent.currentStyle) {
-          parentDisplay = $parent.currentStyle.display;
-        } else {
-          parentDisplay = window.getComputedStyle($parent).display;
-        }
+      // instead of checking for IE by user agent, check if
+      // and the height is wrong.
+      if(cell.height !== parent.height) {
 
-        // instead of checking for IE by user agent, check if
-        // and the height is wrong.
-        if(cell.height !== parent.height) {
+        // we can't separate property read/write into separate loops,
+        // for performance with reflows, because we need to have the
+        // corrent dimensions set on a cell parent, once we reach a child.
+        $cells[i].style.height = parent.height + 'px';
 
-          // we can't separate property read/write into separate loops,
-          // for performance with reflows, because we need to have the
-          // corrent dimensions set on a cell parent, once we reach a child.
-          $cells[i].style.height = parent.height + 'px';
-
-          // some rows without dimensions set take up more space than needed.
-          if(parentDisplay === 'table-row') {
-            $parent.style.height = parent.height + 'px';
-          }
-
+        // some rows without dimensions set take up more space than needed.
+        if(parentDisplay === 'table-row') {
+          $parent.style.height = parent.height + 'px';
         }
 
       }
 
-    }, 300);
+    }
 
   };
 
   var domReady = function(e) {
 
-    setGridSizes();
+    bounceSetGridSizes();
 
     // we have to bind the events even if the layout is not broken
     // to support dom manipulation
     // (eg. client-side templating, the layout will be broken in the future).
 
     // page resize
-    addEventListener.call(window, 'resize', setGridSizes);
+    addEventListener.call(window, 'resize', bounceSetGridSizes);
 
     // dom changes
-    addEventListener.call(document.body, 'DOMSubtreeModified', setGridSizes);
+    addEventListener.call(document.body, 'DOMSubtreeModified', bounceSetGridSizes);
 
     // IE8 dom changes
-    addEventListener.call(document.body, 'propertychange', setGridSizes);
+    addEventListener.call(document.body, 'propertychange', bounceSetGridSizes);
 
   };
 
