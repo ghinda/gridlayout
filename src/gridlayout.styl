@@ -116,10 +116,16 @@ gl() {
   */
   & > .gl-cell > .gl-scrollview > .gl-scrollview-content {
    position: absolute;
+
+   /* Use left, right, 0 instead of width: 100%
+   * because IE9 sets a 17px (scrollbar width) padding on the right side
+   * of scrollview-content otherwise.
+   */
    top: 0;
    left: 0;
+   right: 0;
+
    z-index: 1;
-   width: 100%;
    height: 100%;
    overflow: auto;
 

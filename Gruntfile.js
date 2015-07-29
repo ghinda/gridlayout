@@ -71,6 +71,15 @@ module.exports = function (grunt) {
             ];
           }
         }
+      },
+      test: {
+        options: {
+          middleware: function (connect) {
+            return [
+              mountFolder(connect, './')
+            ];
+          }
+        }
       }
     },
     jshint: {
@@ -246,7 +255,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
-    'connect:dist',
+    'connect:test',
     'saucelabs-jasmine'
   ]);
 

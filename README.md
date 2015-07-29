@@ -173,6 +173,26 @@ Because of cross-browser concerns, the scrollview requires two containers.
 </div>
 ```
 
+### Full height children
+
+To have a full-height child element in a `gl-cell` without using a scrollview (eg. as with sticky footers) use the `gl-fill` class, instead of `height: 100%`, on the child element.
+
+This helps the IE support script find your element and size it correctly, because IE doesn't pass the correct height to `gl-cell` children.
+
+Because of Firefox issues with passing height to child elements without having a specific height set on the parent, you also have to use the `gl-fill` class on the parent `gl-cell`.
+
+```
+<div class="gl">
+  <div class="gl-cell gl-fill">
+
+    <div class="gl-fill">
+      Full Cell Height Container
+    </div>
+
+  </div>
+</div>
+```
+
 ### Vertically aligning content
 
 You can align content vertically inside cells using the `gl-align-middle` and `gl-align-bottom` classes.
@@ -183,6 +203,7 @@ You can align content vertically inside cells using the `gl-align-middle` and `g
   <div class="gl-cell gl-align-bottom">...</div>
 </div>
 ```
+
 
 Examples
 --------

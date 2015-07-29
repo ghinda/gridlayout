@@ -3,6 +3,21 @@
 
 (function() {
 
+  // addEventListener with IE8 support
+  var addEventListener = (function() {
+
+    if('addEventListener' in window.Element.prototype) {
+      return function(type, listener) {
+        this.addEventListener(type, listener, false);
+      };
+    }
+
+    return function(type, listener) {
+      this.attachEvent('on' + type, listener);
+    };
+
+  })();
+
   var toggleClass = function(node, className) {
 
     var foundClassPosition = node.className.indexOf(className);
@@ -23,7 +38,10 @@
     var dropdowns = document.querySelectorAll('.dropdown');
     var i;
 
-    if(e.target.className.indexOf('dropdown-button') === -1) {
+    var target = e.target || e.srcElement;
+
+    if(target.className.indexOf('dropdown-button') === -1) {
+
       // close all dropdowns
       for(i = 0; i < dropdowns.length; i++) {
         if(dropdowns[i].className.indexOf('dropdown-active') !== -1) {
@@ -31,15 +49,13 @@
         }
       }
 
-      return false;
     } else {
 
-      e.preventDefault();
-
-      var dropdown = e.target.parentNode;
+      var dropdown = target.parentNode;
 
       toggleClass(dropdown, 'dropdown-active');
 
+      e.preventDefault && e.preventDefault();
 
     }
 
@@ -47,22 +63,25 @@
 
   var toggleContent = function(e) {
 
-    if(e.target.className.indexOf('js-toggle-content') !== -1) {
-      e.preventDefault();
+    var target = e.target || e.srcElement;
 
-      var contentNode = document.getElementById(e.target.getAttribute('data-content'));
+    if(target.className.indexOf('js-toggle-content') !== -1) {
+
+      var contentNode = document.getElementById(target.getAttribute('data-content'));
 
       toggleClass(contentNode, 'content-show');
+
+      e.preventDefault && e.preventDefault();
     }
 
   };
 
   var init = function() {
     // init content togglers
-    document.body.addEventListener('click', toggleDropdown);
+    addEventListener.call(document.body, 'click', toggleDropdown);
 
     // init dropdowns
-    document.body.addEventListener('click', toggleContent);
+    addEventListener.call(document.body, 'click', toggleContent);
   };
 
   init();
