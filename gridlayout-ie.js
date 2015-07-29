@@ -32,46 +32,44 @@
   }();
   // set the correct grid and scrollview sizes
   var setGridSizes = function() {
-    var $grids = document.querySelectorAll(".gl-vertical, .gl-fill, .gl-scrollview, .gl-scrollview-content");
+    var cellSelector = "" + ".gl-cell > .gl-vertical," + ".gl-cell > .gl-fill," + ".gl-cell > .gl-scrollview," + ".gl-cell > .gl-scrollview > .gl-scrollview-content";
+    var $cells = document.querySelectorAll(cellSelector);
     var i;
     var $parent;
-    var grid;
+    var cell;
     var parent;
-    // elements had wrong sizes
-    var isBroken = false;
-    for (i = 0; i < $grids.length; i++) {
-      grid = getBoundingClientRect.call($grids[i]);
-      $parent = $grids[i].parentNode;
-      parent = getBoundingClientRect.call($parent);
-      var parentDisplay;
-      if ($parent.currentStyle) {
-        parentDisplay = $parent.currentStyle.display;
-      } else {
-        parentDisplay = getComputedStyle($parent).display;
-      }
-      var isTableCell = parentDisplay === "table-cell" || parentDisplay === "table-row";
-      // instead of checking for IE by user agent, check if
-      // the parent is a table cell,
-      // the grid should be of 100% height,
-      // and the size is wrong.
-      if (isTableCell && grid.height !== parent.height) {
-        // at least one element had wrong sizes,
-        // must be IE.
-        isBroken = true;
-        // we can't separate property read/write into separate loops,
-        // for performance with reflows, because we need to have the
-        // corrent dimensions set on a grid parent, once we reach a child.
-        $grids[i].style.height = parent.height + "px";
-        // rows without dimensions set take up more space than needed.
-        if (parentDisplay === "table-row") {
-          $parent.style.height = parent.height + "px";
+    // IE8 needs a while to finish up the layout
+    setTimeout(function() {
+      for (i = 0; i < $cells.length; i++) {
+        cell = getBoundingClientRect.call($cells[i]);
+        $parent = $cells[i].parentNode;
+        parent = getBoundingClientRect.call($parent);
+        var parentDisplay;
+        if ($parent.currentStyle) {
+          parentDisplay = $parent.currentStyle.display;
+        } else {
+          parentDisplay = window.getComputedStyle($parent).display;
+        }
+        // instead of checking for IE by user agent, check if
+        // and the height is wrong.
+        if (cell.height !== parent.height) {
+          // we can't separate property read/write into separate loops,
+          // for performance with reflows, because we need to have the
+          // corrent dimensions set on a cell parent, once we reach a child.
+          $cells[i].style.height = parent.height + "px";
+          // some rows without dimensions set take up more space than needed.
+          if (parentDisplay === "table-row") {
+            $parent.style.height = parent.height + "px";
+          }
         }
       }
-    }
-    return isBroken;
+    }, 300);
   };
   var domReady = function(e) {
     setGridSizes();
+    // we have to bind the events even if the layout is not broken
+    // to support dom manipulation
+    // (eg. client-side templating, the layout will be broken in the future).
     // page resize
     addEventListener.call(window, "resize", setGridSizes);
     // dom changes
