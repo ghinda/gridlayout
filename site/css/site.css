@@ -218,6 +218,7 @@ ul {
 
 .logo-browser {
   width: 40px;
+  height: 40px;
   margin-bottom: 8px;
 }
 
@@ -295,6 +296,8 @@ ul {
 .block-demo img {
   display: block;
   margin: 0 0 4px -6px;
+  width: 200px;
+  height: 120px;
   opacity: .6;
 }
 
