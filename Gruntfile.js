@@ -137,15 +137,25 @@ module.exports = function (grunt) {
           detailedError: true,
           browsers: [
             {
-              browserName: 'chrome'
+              browserName: 'chrome',
+              platform: 'Linux',
+              version: 'dev'
             }, {
-              browserName: 'firefox'
+              browserName: 'firefox',
+              platform: 'Linux',
+              version: '40.0'
             }, {
-              browserName: 'opera'
+              browserName: 'opera',
+              platform: 'Linux',
+              version: '12.15'
             }, {
               browserName: 'android',
               platform: 'Linux',
-              version: '4'
+              version: '4.0'
+            }, {
+              browserName: 'android',
+              platform: 'Linux',
+              version: '5.1'
             }, {
               browserName: 'internet explorer',
               platform: 'Windows 7',
@@ -158,6 +168,10 @@ module.exports = function (grunt) {
               browserName: 'internet explorer',
               platform: 'Windows 8',
               version: '10'
+            }, {
+              browserName: 'microsoftedge',
+              platform: 'Windows 10',
+              version: '20.10240'
             }, {
               browserName: 'safari',
               platform: 'OS X 10.8',
