@@ -52,6 +52,9 @@
   .gl .gl-fill {
     height: 100%;
   }
+  .gl .gl-scrollview {
+    position: relative;
+  }
   .gl > .gl-cell > .gl-scrollview > .gl-scrollview-content {
     position: absolute;
 /* Use left, right, 0 instead of width: 100%
@@ -327,6 +330,9 @@
 }
 .gl-sm .gl-fill {
   height: 100%;
+}
+.gl-sm .gl-scrollview {
+  position: relative;
 }
 .gl-sm > .gl-cell > .gl-scrollview > .gl-scrollview-content {
   position: absolute;
