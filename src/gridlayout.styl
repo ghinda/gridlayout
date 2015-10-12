@@ -110,6 +110,15 @@ gl() {
   /* scrollview
    */
 
+  /* MS Edge 20 needs position:relative on the scrollview container,
+   * otherwise it adds extra scrollbars on gl-scrollview-content parents,
+   * when using multiple nested gl-scrollview's.
+   */
+  
+  .gl-scrollview {
+    position: relative;
+  }
+
   /* needs an absolute container, because IE and FF don't
   * support overflow: auto on table cells.
   * only an absolute container will take up the entire cell size.

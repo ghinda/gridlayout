@@ -47,13 +47,15 @@ describe('Dynamic DOM', function() {
     dom.header = dom.$header.getBoundingClientRect();
     dom.content = dom.$content.getBoundingClientRect();
 
-    expect(dom.footer.height).toBe(dom.header.height);
+    // need to use Math.round because
+    // MS Edge returns heights like 99.999999999237
+    expect(dom.footer.height).toBe(Math.round(dom.header.height));
 
   });
 
   it('should split row heights into a third of the container height', function() {
 
-    expect(dom.header.height).toEqual(dom.container.height / 3);
+    expect(Math.round(dom.header.height)).toEqual(dom.container.height / 3);
 
   });
 
