@@ -6,6 +6,7 @@
  */
 (function() {
   "use strict";
+  var setGridSizeTimer;
   // getBoundingClientRect width/height with IE8 support
   var getBoundingClientRect = function() {
     if (!("TextRectangle" in window)) {
@@ -30,9 +31,12 @@
       this.attachEvent("on" + type, listener);
     };
   }();
-  var bounceSetGridSizes = function() {
+  var bounceSetGridSizes = function(e) {
+    if (setGridSizeTimer) {
+      clearTimeout(setGridSizeTimer);
+    }
     // IE8 needs a while to finish up the layout
-    setTimeout(setGridSizes, 300);
+    setGridSizeTimer = setTimeout(setGridSizes, 300);
   };
   // set the correct grid and scrollview sizes
   var setGridSizes = function() {
@@ -66,23 +70,27 @@
       }
     }
   };
+  var gridlayoutLoaded = false;
   var domReady = function(e) {
-    bounceSetGridSizes();
-    // we have to bind the events even if the layout is not broken
-    // to support dom manipulation
-    // (eg. client-side templating, the layout will be broken in the future).
-    // page resize
-    addEventListener.call(window, "resize", bounceSetGridSizes);
-    // dom changes
-    addEventListener.call(document.body, "DOMSubtreeModified", bounceSetGridSizes);
-    // IE8 dom changes
-    addEventListener.call(document.body, "propertychange", bounceSetGridSizes);
+    if (gridlayoutLoaded === false && (document.readyState === "interactive" || document.readyState === "complete")) {
+      gridlayoutLoaded = true;
+      bounceSetGridSizes();
+      // we have to bind the events even if the layout is not broken
+      // to support dom manipulation
+      // (eg. client-side templating, the layout will be broken in the future).
+      // page resize
+      addEventListener.call(window, "resize", bounceSetGridSizes);
+      if ("MutationEvent" in window) {
+        // dom changes
+        addEventListener.call(document.body, "DOMSubtreeModified", bounceSetGridSizes);
+      } else {
+        // IE8 dom changes
+        addEventListener.call(document.body, "propertychange", bounceSetGridSizes);
+      }
+    }
   };
   // in case the dom is already ready
-  if (document.readyState === "interactive" || document.readyState === "complete") {
-    domReady();
-  } else {
-    // DOMContentLoaded with IE8 support
-    addEventListener.call(document, "readystatechange", domReady);
-  }
+  domReady();
+  // DOMContentLoaded with IE8 support
+  addEventListener.call(document, "readystatechange", domReady);
 })();
