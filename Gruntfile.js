@@ -138,12 +138,10 @@ module.exports = function (grunt) {
           browsers: [
             {
               browserName: 'chrome',
-              platform: 'Linux',
-              version: 'dev'
+              platform: 'Linux'
             }, {
               browserName: 'firefox',
-              platform: 'Linux',
-              version: '40.0'
+              platform: 'Linux'
             }, {
               browserName: 'opera',
               platform: 'Linux',
@@ -170,16 +168,20 @@ module.exports = function (grunt) {
               version: '10'
             }, {
               browserName: 'microsoftedge',
-              platform: 'Windows 10',
-              version: '20.10240'
+              platform: 'Windows 10'
             }, {
               browserName: 'safari',
-              platform: 'OS X 10.8',
-              version: '6'
+              platform: 'OS X 10.10',
+              version: '8'
             }, {
               browserName: 'iphone',
               platform: 'OS X 10.8',
               version: '5'
+            }, {
+              browserName: 'iphone',
+              deviceName: 'iPhone 4s',
+              platform: 'OS X 10.10',
+              version: '8.0'
             }
           ]
         }

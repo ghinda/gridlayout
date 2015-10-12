@@ -1,4 +1,11 @@
 
+## [1.0.2] - 2015-10-12
+
+* Make sure the DOM ready event runs only once, in the IE support script.
+* Reduce the number of times the grid height setter method runs on the grid cells, by improving the debouncer in the IE support script.
+* Fix issues with MS Edge by adding `position:relative` on the `gl-scrollview`.
+* Fix failing tests on MS Edge by rounding the numbers returned by `getBoundingClientRect`.
+
 ## [1.0.1] - 2015-07-29
 
 * Improvements to the IE-support script for slightly better performance and better support for IE8.
