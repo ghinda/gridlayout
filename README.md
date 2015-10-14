@@ -8,14 +8,23 @@ Lightweight grid system for advanced horizontal and vertical web app layouts, wi
 Installation
 ------------
 
+With [npm](https://www.npmjs.com/package/gridlayout)
+
 ```
 npm install gridlayout
 ```
 
-or
+With [Bower](http://bower.io/)
 
 ```
 bower install gridlayout
+```
+
+From [jsDelivr](https://www.jsdelivr.com/projects/gridlayout)
+
+```
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gridlayout/latest/gridlayout.min.css" />
+<script src="https://cdn.jsdelivr.net/gridlayout/latest/gridlayout-ie.min.js"></script>
 ```
 
 Why use GridLayout?
@@ -138,7 +147,7 @@ You can easily nest grids, just make sure you include the `gl` grid container.
 
   </div>
   <div class="gl-cell">...</div>
-</div>  
+</div>
 ```
 
 To make a grid to take up the full height of its container, use the `gl-fill` class.
