@@ -1,14 +1,9 @@
 'use strict';
 var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
-var mountFolder = function (connect, dir) {
-  return connect.static(require('path').resolve(dir));
-};
 
 module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.loadNpmTasks('assemble');
 
   grunt.initConfig({
     watch: {
@@ -52,24 +47,20 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          middleware: function (connect) {
-            return [
-              lrSnippet,
-              mountFolder(connect, './build/'),
-              mountFolder(connect, './src/'),
-              mountFolder(connect, './site/'),
-              mountFolder(connect, './')
-            ];
-          }
+          livereload: true,
+          base: [
+            './build/',
+            './src/',
+            './site/',
+            './'
+          ]
         }
       },
       dist: {
         options: {
-          middleware: function (connect) {
-            return [
-              mountFolder(connect, './build/')
-            ];
-          }
+          base: [
+            './build/'
+          ]
         }
       },
       test: {

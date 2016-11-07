@@ -45,14 +45,6 @@
 
   })();
 
-  var bounceSetGridSizes = function(e) {
-    if(setGridSizeTimer) {
-      clearTimeout(setGridSizeTimer);
-    }
-    // IE8 needs a while to finish up the layout
-    setGridSizeTimer = setTimeout(setGridSizes, 300);
-  };
-
   // set the correct grid and scrollview sizes
   var setGridSizes = function() {
 
@@ -99,6 +91,14 @@
 
     }
 
+  };
+
+  var bounceSetGridSizes = function(e) {
+    if(setGridSizeTimer) {
+      clearTimeout(setGridSizeTimer);
+    }
+    // IE8 needs a while to finish up the layout
+    setGridSizeTimer = setTimeout(setGridSizes, 300);
   };
 
   var gridlayoutLoaded = false;
