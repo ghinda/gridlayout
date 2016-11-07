@@ -65,11 +65,9 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          middleware: function (connect) {
-            return [
-              mountFolder(connect, './')
-            ];
-          }
+          base: [
+            './'
+          ]
         }
       }
     },
