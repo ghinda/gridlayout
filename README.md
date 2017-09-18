@@ -23,8 +23,8 @@ bower install gridlayout
 From [jsDelivr](https://www.jsdelivr.com/projects/gridlayout)
 
 ```
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gridlayout/latest/gridlayout.min.css" />
-<script src="https://cdn.jsdelivr.net/gridlayout/latest/gridlayout-ie.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gridlayout@latest/gridlayout.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/gridlayout@latest/gridlayout-ie.min.js"></script>
 ```
 
 Why use GridLayout?
